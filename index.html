@@ -176,7 +176,9 @@
   <main id="topo">
     <section class="hero surface surface-corner" aria-label="Apresentação">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
-      <img class="hero-foto anim anim-fade-left anim-slow anim-delay-3" src="imgs/esly.webp" alt="Esly Barbosa, desenvolvedor Front-end" width="800" height="916" fetchpriority="high" decoding="async">
+      <div class="hero-foto anim anim-fade-left anim-slow anim-delay-3" aria-label="Cena 3D interativa">
+        <spline-viewer url="https://prod.spline.design/pOSFu-wc0YwnK3-a/scene.splinecode"></spline-viewer>
+      </div>
       <div class="max-container">
         <div class="hero-content">
           <span class="hero-pill-magnet">
@@ -192,7 +194,7 @@
             <p>Criando interfaces modernas, performáticas e focadas na experiência do usuário.</p>
           </div>
           <div class="introducao-botao anim anim-fade-up anim-delay-5">
-            <a class="btn-hero" href="#contato">entrar em contato<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
+            <a class="btn-hero" href="#contato">Começar Projeto<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
           </div>
         </div>
       </div>
@@ -568,6 +570,8 @@
     </div>
   </footer>
 
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"></script>
+  <script src="scripts/spline-logo.js" defer></script>
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/hero-pill.js" defer></script>
   <script src="scripts/contato.js" defer></script>
