@@ -85,6 +85,10 @@
     0 8px 24px color-mix(in srgb, var(--b1) 8%, transparent);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
+  opacity: 0;
+}
+
+body.is-ready .hero-pill {
   animation: hero-pill-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -105,9 +109,12 @@
     transparent 65%
   );
   transform: translateX(-120%);
-  animation: hero-pill-shine 4.5s ease-in-out 1.2s infinite;
   pointer-events: none;
   z-index: 0;
+}
+
+body.is-ready .hero-pill::before {
+  animation: hero-pill-shine 4.5s ease-in-out 1.2s infinite;
 }
 
 .hero-pill::after {
@@ -150,6 +157,10 @@
   .hero-pill,
   .hero-pill::before {
     animation: none;
+  }
+
+  .hero-pill {
+    opacity: 1;
   }
 }
 

@@ -18,6 +18,7 @@
       loader.setAttribute("aria-busy", "false");
       loader.classList.add("is-done");
       document.body.classList.remove("is-loading");
+      document.body.classList.add("is-ready");
 
       window.setTimeout(() => {
         loader.remove();

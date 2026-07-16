@@ -3,6 +3,9 @@
 :root {
   --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --anim-duration: 1s;
+  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --reveal-duration: 1.35s;
+  --reveal-distance: 2rem;
 }
 
 /* Base: necessário junto com a direção (ex.: anim anim-fade-up) */
@@ -10,6 +13,14 @@
   animation-duration: var(--anim-duration);
   animation-timing-function: var(--anim-ease);
   animation-fill-mode: both;
+}
+
+/* Só inicia depois do loader (body.is-ready) */
+body:not(.is-ready) .anim {
+  animation: none !important;
+  opacity: 0;
+  filter: none;
+  transform: none;
 }
 
 /* Direções / efeitos */
@@ -135,48 +146,58 @@
     transform: none !important;
     filter: none !important;
   }
+
+  body:not(.is-ready) .anim {
+    opacity: 1 !important;
+  }
 }
 
 /* ——— Reveal no scroll (seções abaixo do hero) ——— */
 
 .reveal-group .reveal-item {
   opacity: 0;
-  transform: translateY(1.25rem);
-  transition:
-    opacity var(--anim-duration) var(--anim-ease),
-    transform var(--anim-duration) var(--anim-ease);
-  transition-delay: 0s;
+  transform: translateY(var(--reveal-distance));
+  transition: none;
   will-change: opacity, transform;
 }
 
 .reveal-group.reveal-left .reveal-item {
-  transform: translateX(1.5rem);
+  transform: translateX(calc(var(--reveal-distance) + 0.25rem));
 }
 
 .reveal-group.reveal-right .reveal-item {
-  transform: translateX(-1.5rem);
+  transform: translateX(calc((var(--reveal-distance) + 0.25rem) * -1));
 }
 
-.reveal-group.is-inview .reveal-item {
+/* Só anima depois do loader + quando o grupo entra na tela */
+body.is-ready .reveal-group .reveal-item {
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease);
+  transition-delay: 0s;
+}
+
+body.is-ready .reveal-group.is-inview .reveal-item {
   opacity: 1;
   transform: none;
 }
 
-.reveal-group.is-inview .reveal-item:nth-child(1) { transition-delay: 0.05s; }
-.reveal-group.is-inview .reveal-item:nth-child(2) { transition-delay: 0.12s; }
-.reveal-group.is-inview .reveal-item:nth-child(3) { transition-delay: 0.19s; }
-.reveal-group.is-inview .reveal-item:nth-child(4) { transition-delay: 0.26s; }
-.reveal-group.is-inview .reveal-item:nth-child(5) { transition-delay: 0.33s; }
-.reveal-group.is-inview .reveal-item:nth-child(6) { transition-delay: 0.4s; }
-.reveal-group.is-inview .reveal-item:nth-child(7) { transition-delay: 0.47s; }
-.reveal-group.is-inview .reveal-item:nth-child(8) { transition-delay: 0.54s; }
-.reveal-group.is-inview .reveal-item:nth-child(9) { transition-delay: 0.61s; }
-.reveal-group.is-inview .reveal-item:nth-child(10) { transition-delay: 0.68s; }
-.reveal-group.is-inview .reveal-item:nth-child(11) { transition-delay: 0.75s; }
-.reveal-group.is-inview .reveal-item:nth-child(12) { transition-delay: 0.82s; }
-.reveal-group.is-inview .reveal-item:nth-child(13) { transition-delay: 0.89s; }
-.reveal-group.is-inview .reveal-item:nth-child(14) { transition-delay: 0.96s; }
-.reveal-group.is-inview .reveal-item:nth-child(n+15) { transition-delay: 1s; }
+/* Cascata mais espaçada e sobreposta — menos “seca” */
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(1 of .reveal-item) { transition-delay: 0.08s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(2 of .reveal-item) { transition-delay: 0.2s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(3 of .reveal-item) { transition-delay: 0.32s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(4 of .reveal-item) { transition-delay: 0.44s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(5 of .reveal-item) { transition-delay: 0.56s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(6 of .reveal-item) { transition-delay: 0.68s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(7 of .reveal-item) { transition-delay: 0.8s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(8 of .reveal-item) { transition-delay: 0.92s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(9 of .reveal-item) { transition-delay: 1.04s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(10 of .reveal-item) { transition-delay: 1.16s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(11 of .reveal-item) { transition-delay: 1.28s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(12 of .reveal-item) { transition-delay: 1.4s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(13 of .reveal-item) { transition-delay: 1.52s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(14 of .reveal-item) { transition-delay: 1.64s; }
+body.is-ready .reveal-group.is-inview .reveal-item:nth-child(n+15 of .reveal-item) { transition-delay: 1.76s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-group .reveal-item {
