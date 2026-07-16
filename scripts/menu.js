@@ -38,6 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) close();
+    if (window.innerWidth > 900) close();
   });
 });

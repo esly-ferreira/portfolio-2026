@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Extra+Condensed:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap">
   <link rel="stylesheet" href="estilos/colors.css">
   <link rel="stylesheet" href="estilos/global.css">
+  <link rel="stylesheet" href="estilos/tipografia.css">
+  <link rel="stylesheet" href="estilos/animacoes.css">
   <link rel="stylesheet" href="estilos/header.css">
   <link rel="stylesheet" href="estilos/hero.css">
   <link rel="stylesheet" href="estilos/sobre.css">
@@ -63,35 +65,39 @@
   </header>
 
   <main id="topo">
-    <section class="hero surface">
+    <section class="hero surface surface-corner">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
-      <img class="hero-foto" src="imgs/esly.webp" alt="Esly Barbosa">
+      <img class="hero-foto anim anim-fade-left anim-slow anim-delay-3" src="imgs/esly.webp" alt="Esly Barbosa">
       <div class="max-container">
         <div class="hero-content">
           <span class="hero-pill-magnet">
             <span class="hero-pill"><span>Front End Developer</span></span>
           </span>
-          <h2>Olá, eu sou</h2>
-          <div class="hero-title">
+          <h2 class="anim anim-fade-up anim-delay-1">Olá, eu sou</h2>
+          <div class="hero-title anim anim-blur-in anim-delay-2">
             <h1>Esly Barbosa</h1>
           </div>
         </div>
         <div class="introducao">
-          <div class="introducao-content">
+          <div class="introducao-content anim anim-fade-up anim-delay-4">
             <p>Criando interfaces modernas, performáticas e focadas na experiência do usuário.</p>
           </div>
-          <div class="introducao-botao">
+          <div class="introducao-botao anim anim-fade-up anim-delay-5">
             <a class="btn-hero" href="#contato">entrar em contato<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sobre" class="sobre surface">
+    <section id="sobre" class="sobre surface surface-corner">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
       <div class="max-container">
         <div class="sobre-layout">
           <div class="sobre-heading">
-            <p class="section-label">Sobre mim</p>
+            <p class="section-label">
+              <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
+              Sobre mim
+            </p>
             <h2 class="section-title">Do requisito à interface em produção</h2>
             <dl class="sobre-facts">
               <div class="sobre-fact">
@@ -109,10 +115,14 @@
             </dl>
           </div>
           <div class="sobre-text">
-            <p>Atuo no desenvolvimento e evolução de aplicações web corporativas, acompanhando o ciclo desde o levantamento de requisitos até a entrega em produção.</p>
-            <p>Meu foco está em interfaces com Vue.js, TypeScript, JavaScript, HTML, CSS e SCSS — escaláveis, responsivas e centradas na experiência. Também participo da implementação de Micro Frontends, buscando modularidade, reúso e manutenção mais simples.</p>
-            <p>Além do código, transformo necessidades de negócio em fluxos, navegação e protótipos de alta fidelidade. Atuo na prática como UX/UI, com wireframes e design em Figma, Adobe XD e Photoshop, sempre priorizando usabilidade e acessibilidade.</p>
-            <p>Integro aplicações com APIs REST e organizo componentes reutilizáveis com boas práticas de arquitetura Front-end. Atualmente amplio os estudos em React para novas abordagens modernas.</p>
+            <p>Sou desenvolvedor Front-end e gosto de participar de todo o processo, desde entender o problema até entregar uma solução que realmente faça sentido para quem vai usar.</p>
+
+            <p>Hoje trabalho principalmente com Vue.js, TypeScript, JavaScript, HTML, CSS e SCSS, desenvolvendo aplicações web e participando da implementação de Micro Frontends. Busco escrever um código organizado, reutilizável e fácil de dar manutenção.</p>
+            
+            <p>Também tenho bastante interesse por UX/UI, porque acredito que um sistema precisa ser funcional e agradável ao mesmo tempo. Por isso, costumo criar wireframes e protótipos no Figma, Adobe XD e Photoshop antes de partir para o desenvolvimento.</p>
+            
+            <p>Além disso, realizo integrações com APIs REST e estou sempre buscando aprender novas tecnologias. Atualmente estou aprofundando meus estudos em React para expandir meu repertório como desenvolvedor Front-end.</p>
+            
           </div>
         </div>
         <ul class="sobre-pills" aria-label="Competências-chave">
@@ -133,11 +143,15 @@
       </div>
     </section>
 
-    <section id="projetos" class="projetos surface">
+    <section id="projetos" class="projetos surface surface-corner">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
       <div class="max-container">
         <div class="projetos-header">
           <div class="projetos-header-text">
-            <p class="section-label">Projetos</p>
+            <p class="section-label">
+              <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
+              Projetos
+            </p>
             <h2 class="section-title">Seleção recente</h2>
           </div>
           <a class="btn-ghost" href="projetos.html">Ver todos os projetos →</a>
@@ -190,10 +204,14 @@
       </div>
     </section>
 
-    <section id="atuacao" class="servicos surface">
+    <section id="atuacao" class="servicos surface surface-corner">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
       <div class="max-container">
         <div class="servicos-header">
-          <p class="section-label">Atuação</p>
+          <p class="section-label">
+            <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
+            Atuação
+          </p>
           <h2 class="section-title">Especialidades</h2>
           <p>Foco em interfaces, experiência e arquitetura front-end no contexto corporativo.</p>
         </div>
@@ -250,14 +268,20 @@
       </div>
     </section>
 
-    <section id="experiencia" class="experiencia surface">
+    <section id="experiencia" class="experiencia surface surface-corner">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
       <div class="max-container">
         <div class="experiencia-layout">
           <div class="experiencia-intro">
-            <p class="section-label">Experiência</p>
+            <p class="section-label">
+              <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
+              Experiência
+            </p>
             <h2 class="section-title">Trajetória e formação</h2>
-            <p>No dia a dia corporativo, conecto áreas de negócio e produto: levanto requisitos, desenho fluxos e entrego interfaces prontas para produção — com atenção a usabilidade, acessibilidade e manutenção.</p>
-            <p>A formação contínua em UX (FIAP) e na trilha Origamid sustenta essa ponte entre design e código.</p>
+            <p>No dia a dia, trabalho em conjunto com as áreas de negócio para entender as necessidades, definir soluções e transformar ideias em interfaces prontas para produção. Busco desenvolver aplicações que sejam intuitivas, acessíveis e fáceis de manter.</p>
+
+            <p>Também invisto constantemente na minha evolução profissional. Atualmente estou me aprofundando em UX pela FIAP e aprimorando meus conhecimentos em Front-end por meio da Origamid, buscando unir cada vez mais design e desenvolvimento na criação de produtos digitais.</p>
+            
           </div>
           <div class="experiencia-cursos">
             <h3>Cursos e certificações</h3>
@@ -280,10 +304,14 @@
       </div>
     </section>
 
-    <section id="depoimentos" class="depoimentos surface">
+    <section id="depoimentos" class="depoimentos surface surface-corner">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
       <div class="max-container">
         <div class="depoimentos-header">
-          <p class="section-label">Depoimentos</p>
+          <p class="section-label">
+            <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
+            Depoimentos
+          </p>
           <h2 class="section-title">O que dizem sobre o trabalho</h2>
         </div>
         <div class="depoimentos-grid">
@@ -315,11 +343,15 @@
       </div>
     </section>
 
-    <section id="contato" class="contato surface">
+    <section id="contato" class="contato surface surface-corner">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
       <div class="max-container">
         <div class="contato-layout">
           <div class="contato-heading">
-            <p class="section-label">Contato</p>
+            <p class="section-label">
+              <img class="section-label-icon" src="svgs/estrela.svg" width="20" height="20" alt="" aria-hidden="true">
+              Contato
+            </p>
             <h2 class="section-title">Fale comigo</h2>
             <p>Aberto a conversas sobre oportunidades, projetos e colaboração. Envie uma mensagem e retorno em breve.</p>
             <ul class="contato-dados">

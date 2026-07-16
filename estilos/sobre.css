@@ -25,20 +25,11 @@
 }
 
 .sobre-fact dt {
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: color-mix(in srgb, var(--b3) 55%, transparent);
 }
 
 .sobre-fact dd {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
   color: var(--b2);
-  line-height: 1.35;
 }
 
 .sobre-fact a {
@@ -57,10 +48,6 @@
 }
 
 .sobre-text p {
-  font-family: "Inter", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 300;
-  line-height: 1.55;
   color: var(--b3);
   max-width: 52ch;
 }
@@ -77,11 +64,6 @@
 .sobre-pill {
   display: inline-flex;
   align-items: center;
-  font-family: "Inter", sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
   color: var(--b3);
   background: transparent;
   border: 1px solid color-mix(in srgb, var(--b3) 22%, transparent);
@@ -104,10 +86,6 @@
 }
 
 @media (max-width: 768px) {
-  .sobre-text p {
-    font-size: 1rem;
-  }
-
   .sobre-pills {
     margin-top: 1.75rem;
     padding-top: 1.5rem;

@@ -66,11 +66,6 @@
 .projeto-tag {
   display: inline-flex;
   align-items: center;
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--p5);
   background: var(--p1);
   border-radius: 100px;
@@ -89,10 +84,6 @@
 }
 
 .projeto-card h3 {
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(1.75rem, 3vw, 2.35rem);
-  font-weight: 400;
-  line-height: 1.15;
   color: var(--b2);
   margin-bottom: 0.75rem;
 }
@@ -102,10 +93,6 @@
 }
 
 .projeto-card p {
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 300;
-  line-height: 1.5;
   color: var(--b3);
   max-width: 36ch;
 }
@@ -122,11 +109,6 @@
 }
 
 .projeto-stack span {
-  font-family: "Inter", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   color: var(--b3);
   border: 1px solid color-mix(in srgb, var(--b3) 18%, transparent);
   border-radius: 100px;
@@ -152,10 +134,6 @@
 }
 
 .page-projetos .projetos-page-intro p:not(.section-label) {
-  font-family: "Inter", sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 300;
-  line-height: 1.55;
   color: var(--b3);
 }
 
@@ -167,11 +145,6 @@
 }
 
 .filtro-btn {
-  font-family: "Inter", sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--b3);
   background: transparent;
   border: 1px solid color-mix(in srgb, var(--b3) 20%, transparent);
@@ -196,9 +169,6 @@
 }
 
 .projetos-vazio {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
   color: color-mix(in srgb, var(--b3) 60%, transparent);
   padding: 2rem 0;
 }
@@ -223,11 +193,6 @@
   align-items: center;
   gap: 0.4rem;
   margin-top: 1.25rem;
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: var(--b2);
   transition: color 0.25s ease;
 }
@@ -245,9 +210,6 @@
 }
 
 .projeto-placeholder {
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 300;
   font-style: italic;
   color: color-mix(in srgb, var(--b3) 55%, transparent);
   margin-top: 0.75rem;

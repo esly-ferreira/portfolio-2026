@@ -1,0 +1,138 @@
+/* Animações reutilizáveis — aplique as classes nos elementos */
+
+:root {
+  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-duration: 1s;
+}
+
+/* Base: necessário junto com a direção (ex.: anim anim-fade-up) */
+.anim {
+  animation-duration: var(--anim-duration);
+  animation-timing-function: var(--anim-ease);
+  animation-fill-mode: both;
+}
+
+/* Direções / efeitos */
+.anim-fade-up {
+  animation-name: anim-fade-up;
+}
+
+.anim-fade-down {
+  animation-name: anim-fade-down;
+}
+
+.anim-fade-in {
+  animation-name: anim-fade-in;
+}
+
+.anim-fade-left {
+  animation-name: anim-fade-left;
+}
+
+.anim-fade-right {
+  animation-name: anim-fade-right;
+}
+
+.anim-scale-in {
+  animation-name: anim-scale-in;
+}
+
+.anim-blur-in {
+  animation-name: anim-blur-in;
+}
+
+/* Delays em cascata (≈80ms cada) */
+.anim-delay-1 { animation-delay: 0.08s; }
+.anim-delay-2 { animation-delay: 0.16s; }
+.anim-delay-3 { animation-delay: 0.24s; }
+.anim-delay-4 { animation-delay: 0.36s; }
+.anim-delay-5 { animation-delay: 0.48s; }
+.anim-delay-6 { animation-delay: 0.6s; }
+.anim-delay-7 { animation-delay: 0.72s; }
+.anim-delay-8 { animation-delay: 0.84s; }
+
+/* Durações opcionais */
+.anim-fast { animation-duration: 0.5s; }
+.anim-slow { animation-duration: 1s; }
+
+@keyframes anim-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes anim-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes anim-fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes anim-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes anim-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

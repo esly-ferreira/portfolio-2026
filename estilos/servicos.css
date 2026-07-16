@@ -7,10 +7,6 @@
 }
 
 .servicos-header p:not(.section-label) {
-  font-family: "Inter", sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 300;
-  line-height: 1.5;
   color: var(--b3);
   margin-top: 0.25rem;
 }
@@ -60,10 +56,6 @@
 }
 
 .servico-body h3 {
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.1;
   color: var(--b2);
   margin-bottom: 0.65rem;
 }
@@ -75,11 +67,6 @@
 }
 
 .servico-tags span {
-  font-family: "Inter", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   color: var(--b3);
   background: color-mix(in srgb, var(--p2) 55%, var(--w1));
   border-radius: 100px;
@@ -87,9 +74,6 @@
 }
 
 .servico-num {
-  font-family: "Sofia Sans Extra Condensed", sans-serif;
-  font-size: 1.25rem;
-  font-weight: 200;
   color: color-mix(in srgb, var(--b3) 35%, transparent);
 }
 
@@ -102,9 +86,5 @@
 
   .servico-num {
     display: none;
-  }
-
-  .servico-body h3 {
-    font-size: 1.65rem;
   }
 }

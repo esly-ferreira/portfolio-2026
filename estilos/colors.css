@@ -10,4 +10,8 @@
   --w1: #fffcf8;
   --w2: #ffffff;
   --link: #0c8ce9;
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+  --font-condensed: "Sofia Sans Extra Condensed", sans-serif;
 }

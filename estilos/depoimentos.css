@@ -52,10 +52,6 @@
 }
 
 .depoimento-card blockquote {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.55;
   color: color-mix(in srgb, var(--w1) 88%, transparent);
   flex: 1;
 }
@@ -69,16 +65,10 @@
 }
 
 .depoimento-autor strong {
-  font-family: "Inter", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
   color: var(--w1);
 }
 
 .depoimento-autor span {
-  font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 300;
   color: color-mix(in srgb, var(--w1) 55%, transparent);
 }
 

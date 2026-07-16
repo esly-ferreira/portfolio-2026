@@ -16,11 +16,7 @@
   max-width: 8ch;
 }
 
-.contato-heading p {
-  font-family: "Inter", sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 300;
-  line-height: 1.5;
+.contato-heading p:not(.section-label) {
   color: var(--b3);
   max-width: 36ch;
 }
@@ -42,19 +38,11 @@
 }
 
 .contato-dados span {
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: color-mix(in srgb, var(--b3) 55%, transparent);
 }
 
 .contato-dados a,
 .contato-dados strong {
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
   color: var(--b2);
 }
 
@@ -75,11 +63,6 @@
 }
 
 .form-field label {
-  font-family: "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: color-mix(in srgb, var(--b3) 60%, transparent);
 }
 
@@ -91,9 +74,6 @@
   border-bottom: 1px solid color-mix(in srgb, var(--b3) 25%, transparent);
   padding: 0.65rem 0;
   color: var(--b2);
-  font-family: "Inter", sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 300;
   outline: none;
   resize: vertical;
   transition: border-color 0.25s ease;
@@ -114,9 +94,6 @@
 }
 
 .contato-form .form-status {
-  font-family: "Inter", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 300;
   color: var(--p5);
   min-height: 1.25em;
 }

@@ -1,9 +1,10 @@
 .header {
   background-color: var(--b2);
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
-  height: 80px;
+  min-height: 80px;
+  height: auto;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -23,6 +24,7 @@
   align-items: center;
   flex-shrink: 0;
   z-index: 102;
+  padding: 0;
 }
 
 .header-logo img {
@@ -45,6 +47,7 @@
   flex-direction: column;
   gap: 5px;
   z-index: 102;
+  flex-shrink: 0;
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -86,8 +89,8 @@
   gap: 0.5rem;
 }
 
-.header a {
-  font-family: "Inter", sans-serif;
+.header-nav a {
+  font-family: var(--font-sans);
   font-size: 0.875rem;
   text-transform: uppercase;
   color: var(--w1);
@@ -130,47 +133,52 @@
 }
 
 @media (max-width: 900px) {
-  .header-nav ul {
-    gap: 0.15rem;
+  .header {
+    padding: 0.65rem 0.75rem;
+    min-height: 72px;
   }
 
-  .header a {
-    font-size: 0.8rem;
-    padding: 0.45rem 0.7rem;
+  .header .max-container {
+    padding: 0 12px;
   }
 
-  .header-nav ul .nav-sep {
-    margin: 0;
-  }
-}
-
-@media (max-width: 768px) {
   .menu-toggle {
     display: inline-flex;
   }
 
   .header-nav {
     position: fixed;
-    inset: 0 0 0 auto;
-    width: min(86vw, 340px);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(86vw, 320px);
     height: 100dvh;
+    max-height: 100dvh;
     background: var(--b2);
-    padding: 6.5rem 1.75rem 2rem;
+    padding: calc(5.5rem + env(safe-area-inset-top, 0px)) 1.5rem
+      calc(2rem + env(safe-area-inset-bottom, 0px));
     transform: translateX(100%);
-    transition: transform 0.35s ease;
+    transition: transform 0.35s ease, visibility 0.35s ease;
     z-index: 101;
     border-left: 1px solid color-mix(in srgb, var(--w1) 8%, transparent);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .header.is-open .header-nav {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .header-nav ul {
     flex-direction: column;
     align-items: stretch;
     gap: 0.35rem;
+    width: 100%;
   }
 
   .header-nav ul .nav-sep {
@@ -180,6 +188,7 @@
   .header-nav a {
     display: block;
     width: 100%;
+    box-sizing: border-box;
     font-size: 1.05rem;
     font-weight: 400;
     padding: 0.9rem 1rem;
