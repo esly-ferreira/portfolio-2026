@@ -4,23 +4,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projetos de Esly Barbosa — cases de Front-end, UX/UI, sites e design. Portfólio com Vue.js, TypeScript e interfaces centradas no usuário.">
+  <meta name="author" content="Esly Barbosa">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#202127">
+
+  <title>Projetos | Esly Barbosa — Portfólio Front-end</title>
+
+  <link rel="canonical" href="https://esly.com.br/projetos.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://esly.com.br/projetos.html">
+  <link rel="icon" href="svgs/logo.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Esly Barbosa — Portfólio">
+  <meta property="og:title" content="Projetos | Esly Barbosa">
+  <meta property="og:description" content="Cases e entregas de Front-end, UX/UI e design no portfólio de Esly Barbosa.">
+  <meta property="og:url" content="https://esly.com.br/projetos.html">
+  <meta property="og:image" content="https://esly.com.br/imgs/esly.webp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projetos | Esly Barbosa">
+  <meta name="twitter:description" content="Cases e entregas de Front-end, UX/UI e design.">
+  <meta name="twitter:image" content="https://esly.com.br/imgs/esly.webp">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap">
   <link rel="stylesheet" href="estilos/colors.css">
   <link rel="stylesheet" href="estilos/global.css">
+  <link rel="stylesheet" href="estilos/scrollbar.css">
   <link rel="stylesheet" href="estilos/tipografia.css">
   <link rel="stylesheet" href="estilos/header.css">
   <link rel="stylesheet" href="estilos/projetos.css">
   <link rel="stylesheet" href="estilos/footer.css">
-  <title>Projetos — Esly Barbosa</title>
+  <link rel="stylesheet" href="estilos/acessibilidade.css">
+  <link rel="stylesheet" href="estilos/loader.css">
+  <link rel="prefetch" href="index.html">
 </head>
 
 <body>
+  <div
+    id="page-loader"
+    class="page-loader"
+    role="status"
+    aria-live="polite"
+    aria-busy="true"
+    aria-label="Carregando o site"
+    style="background:#101114"
+  >
+    <div class="page-loader-inner">
+      <img class="page-loader-star" src="svgs/estrela.svg" alt="" width="48" height="48" decoding="async">
+      <p class="page-loader-brand">Esly Barbosa</p>
+      <p class="page-loader-status">Carregando</p>
+      <div class="page-loader-bar" aria-hidden="true">
+        <span class="page-loader-bar-fill"></span>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/loader.js"></script>
+  <a class="skip-link" href="#conteudo-projetos">Pular para o conteúdo</a>
   <header class="header">
     <div class="max-container divider-container">
-      <a class="header-logo" href="index.html" aria-label="Ir para o início">
-        <img src="svgs/logo.svg" alt="Esly">
+      <a class="header-logo" href="index.html" aria-label="Esly Barbosa — Ir para o início">
+        <img src="svgs/logo.svg" alt="Esly Barbosa" width="120" height="28" decoding="async">
       </a>
 
       <nav class="header-nav" id="menu-principal" aria-label="Principal">
@@ -57,12 +104,12 @@
     <div class="menu-backdrop" aria-hidden="true"></div>
   </header>
 
-  <main>
-    <section class="projetos surface projetos-page-hero">
+  <main id="conteudo-projetos">
+    <section class="projetos surface projetos-page-hero" aria-labelledby="projetos-page-titulo">
       <div class="max-container">
         <div class="projetos-page-intro">
           <p class="section-label">Portfólio</p>
-          <h1 class="section-title">Projetos</h1>
+          <h1 class="section-title" id="projetos-page-titulo">Projetos</h1>
           <p>Cases e entregas organizados por categoria. Filtre e substitua os cards pelos seus trabalhos reais.</p>
         </div>
 
@@ -216,6 +263,7 @@
 
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/projetos-filtro.js" defer></script>
+  <script src="scripts/acessibilidade.js" defer></script>
 </body>
 
 </html>

@@ -153,7 +153,7 @@
   }
 }
 
-.hero-content h2 {
+.hero-content .hero-greeting {
   color: var(--b3);
   font-family: var(--font-condensed);
   font-weight: 400;
@@ -303,7 +303,7 @@
     padding: 2.25rem 24px 0;
   }
 
-  .hero-content h2 {
+  .hero-content .hero-greeting {
     font-size: 1.05rem;
   }
 
@@ -339,7 +339,7 @@
     padding: 1.75rem 14px 0;
   }
 
-  .hero-content h2 {
+  .hero-content .hero-greeting {
     font-size: 1rem;
   }
 

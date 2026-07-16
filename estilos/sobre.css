@@ -64,18 +64,32 @@
 .sobre-pill {
   display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
   color: var(--b3);
   background: transparent;
   border: 1px solid color-mix(in srgb, var(--b3) 22%, transparent);
   border-radius: 100px;
-  padding: 0.55rem 1.1rem;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.sobre-pill img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
+  transition: filter 0.2s ease;
 }
 
 .sobre-pill:hover {
   background: var(--b2);
   color: var(--w1);
   border-color: var(--b2);
+}
+
+.sobre-pill:hover img {
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 900px) {

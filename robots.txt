@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://esly.com.br/sitemap.xml

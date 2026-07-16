@@ -51,6 +51,28 @@ a {
   color: inherit;
 }
 
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 10060;
+  padding: 0.75rem 1.1rem;
+  border-radius: 10px;
+  background: var(--p1);
+  color: var(--b2);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--b2);
+  outline-offset: 2px;
+}
+
 button,
 input,
 textarea {
@@ -217,6 +239,18 @@ section[id] {
   border-bottom-color: var(--p4);
 }
 
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+button:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
 :focus-visible {
   outline: 2px solid var(--p1);
   outline-offset: 3px;

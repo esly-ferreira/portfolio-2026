@@ -14,4 +14,12 @@
   --font-sans: "Inter", sans-serif;
   --font-serif: "Instrument Serif", serif;
   --font-condensed: "Sofia Sans Extra Condensed", sans-serif;
+
+  /* Scrollbar — personalize aqui */
+  --scrollbar-size: 10px;
+  --scrollbar-radius: 1000px;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: var(--p1);
+  --scrollbar-thumb-hover: var(--p1);
+  --scrollbar-thumb-active: var(--p3);
 }
