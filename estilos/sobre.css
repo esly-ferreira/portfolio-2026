@@ -1,0 +1,115 @@
+.sobre-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 3rem 4rem;
+  align-items: start;
+}
+
+.sobre-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sobre-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-top: 1.75rem;
+}
+
+.sobre-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sobre-fact dt {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--b3) 55%, transparent);
+}
+
+.sobre-fact dd {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--b2);
+  line-height: 1.35;
+}
+
+.sobre-fact a {
+  color: var(--b2);
+  transition: color 0.25s ease;
+}
+
+.sobre-fact a:hover {
+  color: var(--p5);
+}
+
+.sobre-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sobre-text p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--b3);
+  max-width: 52ch;
+}
+
+.sobre-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--b3) 12%, transparent);
+}
+
+.sobre-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--b3);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--b3) 22%, transparent);
+  border-radius: 100px;
+  padding: 0.55rem 1.1rem;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.sobre-pill:hover {
+  background: var(--b2);
+  color: var(--w1);
+  border-color: var(--b2);
+}
+
+@media (max-width: 900px) {
+  .sobre-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre-text p {
+    font-size: 1rem;
+  }
+
+  .sobre-pills {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+  }
+}

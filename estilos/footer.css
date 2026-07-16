@@ -1,0 +1,134 @@
+.footer {
+  background: var(--b2);
+  padding: 4rem 0 2rem;
+  margin-top: 0;
+}
+
+.footer-brand {
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(4rem, 14vw, 10rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: color-mix(in srgb, var(--w1) 12%, transparent);
+  margin-bottom: 2.5rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--w1) 10%, transparent);
+}
+
+.footer-col h3 {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--w1) 45%, transparent);
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--w1) 70%, transparent);
+  max-width: 28ch;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-links a {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--w1);
+  transition: color 0.25s ease;
+  width: fit-content;
+}
+
+.footer-links a:hover {
+  color: var(--p1);
+}
+
+.footer-loc {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: color-mix(in srgb, var(--w1) 55%, transparent);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: color-mix(in srgb, var(--w1) 40%, transparent);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--w1);
+  transition: color 0.25s ease;
+}
+
+.footer-social a:hover {
+  color: var(--p1);
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-col--about {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-brand {
+    margin-bottom: 2rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

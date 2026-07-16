@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Extra+Condensed:ital@0;1&display=swap">
+  <link rel="stylesheet" href="estilos/colors.css">
+  <link rel="stylesheet" href="estilos/global.css">
+  <link rel="stylesheet" href="estilos/header.css">
+  <link rel="stylesheet" href="estilos/hero.css">
+  <link rel="stylesheet" href="estilos/sobre.css">
+  <link rel="stylesheet" href="estilos/projetos.css">
+  <link rel="stylesheet" href="estilos/servicos.css">
+  <link rel="stylesheet" href="estilos/experiencia.css">
+  <link rel="stylesheet" href="estilos/depoimentos.css">
+  <link rel="stylesheet" href="estilos/contato.css">
+  <link rel="stylesheet" href="estilos/footer.css">
+  <title>Esly Barbosa — Portfólio</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="max-container divider-container">
+      <a class="header-logo" href="index.html" aria-label="Ir para o início">
+        <img src="svgs/logo.svg" alt="Esly">
+      </a>
+
+      <nav class="header-nav" id="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li class="nav-sep" aria-hidden="true">•</li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li class="nav-sep" aria-hidden="true">•</li>
+          <li><a href="#atuacao">Atuação</a></li>
+          <li class="nav-sep" aria-hidden="true">•</li>
+          <li><a href="#experiencia">Experiência</a></li>
+          <li class="nav-sep" aria-hidden="true">•</li>
+          <li><a href="#contato">Contato</a></li>
+          <li class="imagem-idioma">
+            <a href="#" aria-label="Idioma: Português">
+              <img src="svgs/br.svg" alt="" width="20" height="20">
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="menu-principal"
+        aria-expanded="false"
+        aria-label="Abrir menu"
+      >
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
+    </div>
+    <div class="menu-backdrop" aria-hidden="true"></div>
+  </header>
+
+  <main id="topo">
+    <section class="hero surface">
+      <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true">
+      <img class="hero-foto" src="imgs/esly.webp" alt="Esly Barbosa">
+      <div class="max-container">
+        <div class="hero-content">
+          <span class="hero-pill-magnet">
+            <span class="hero-pill"><span>Front End Developer</span></span>
+          </span>
+          <h2>Olá, eu sou</h2>
+          <div class="hero-title">
+            <h1>Esly Barbosa</h1>
+          </div>
+        </div>
+        <div class="introducao">
+          <div class="introducao-content">
+            <p>Criando interfaces modernas, performáticas e focadas na experiência do usuário.</p>
+          </div>
+          <div class="introducao-botao">
+            <a class="btn-hero" href="#contato">entrar em contato<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="sobre surface">
+      <div class="max-container">
+        <div class="sobre-layout">
+          <div class="sobre-heading">
+            <p class="section-label">Sobre mim</p>
+            <h2 class="section-title">Do requisito à interface em produção</h2>
+            <dl class="sobre-facts">
+              <div class="sobre-fact">
+                <dt>Telefone</dt>
+                <dd><a href="tel:+5511987528603">+55 (11) 98752-8603</a></dd>
+              </div>
+              <div class="sobre-fact">
+                <dt>Aniversário</dt>
+                <dd>06 Dezembro, 2000</dd>
+              </div>
+              <div class="sobre-fact">
+                <dt>Localização</dt>
+                <dd>Franco da Rocha — São Paulo, Brasil</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="sobre-text">
+            <p>Atuo no desenvolvimento e evolução de aplicações web corporativas, acompanhando o ciclo desde o levantamento de requisitos até a entrega em produção.</p>
+            <p>Meu foco está em interfaces com Vue.js, TypeScript, JavaScript, HTML, CSS e SCSS — escaláveis, responsivas e centradas na experiência. Também participo da implementação de Micro Frontends, buscando modularidade, reúso e manutenção mais simples.</p>
+            <p>Além do código, transformo necessidades de negócio em fluxos, navegação e protótipos de alta fidelidade. Atuo na prática como UX/UI, com wireframes e design em Figma, Adobe XD e Photoshop, sempre priorizando usabilidade e acessibilidade.</p>
+            <p>Integro aplicações com APIs REST e organizo componentes reutilizáveis com boas práticas de arquitetura Front-end. Atualmente amplio os estudos em React para novas abordagens modernas.</p>
+          </div>
+        </div>
+        <ul class="sobre-pills" aria-label="Competências-chave">
+          <li class="sobre-pill">Vue.js</li>
+          <li class="sobre-pill">TypeScript</li>
+          <li class="sobre-pill">JavaScript</li>
+          <li class="sobre-pill">HTML5</li>
+          <li class="sobre-pill">CSS3 / SCSS</li>
+          <li class="sobre-pill">Micro Frontends</li>
+          <li class="sobre-pill">UX / UI Design</li>
+          <li class="sobre-pill">Figma</li>
+          <li class="sobre-pill">Adobe XD</li>
+          <li class="sobre-pill">Prototipação</li>
+          <li class="sobre-pill">APIs REST</li>
+          <li class="sobre-pill">Git</li>
+          <li class="sobre-pill">React · aprendizado</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projetos" class="projetos surface">
+      <div class="max-container">
+        <div class="projetos-header">
+          <div class="projetos-header-text">
+            <p class="section-label">Projetos</p>
+            <h2 class="section-title">Seleção recente</h2>
+          </div>
+          <a class="btn-ghost" href="projetos.html">Ver todos os projetos →</a>
+        </div>
+        <div class="projetos-grid">
+          <article class="projeto-card projeto-card--featured">
+            <div class="projeto-card-top">
+              <span class="projeto-tag">Corporativo</span>
+            </div>
+            <div class="projeto-card-body">
+              <h3>Dashboard modular com Micro Frontends</h3>
+              <p>Arquitetura de módulos independentes para um painel corporativo, unificando experiência e permitindo deploys isolados por domínio.</p>
+              <div class="projeto-stack">
+                <span>Vue.js</span>
+                <span>TypeScript</span>
+                <span>Micro Frontends</span>
+                <span>SCSS</span>
+              </div>
+            </div>
+          </article>
+          <article class="projeto-card projeto-card--dark">
+            <div class="projeto-card-top">
+              <span class="projeto-tag">UX/UI</span>
+            </div>
+            <div class="projeto-card-body">
+              <h3>Sistema de design em Figma</h3>
+              <p>Biblioteca de componentes, tokens e fluxos para acelerar prototipação e manter consistência visual entre times.</p>
+              <div class="projeto-stack">
+                <span>Figma</span>
+                <span>Design System</span>
+                <span>Acessibilidade</span>
+              </div>
+            </div>
+          </article>
+          <article class="projeto-card projeto-card--accent">
+            <div class="projeto-card-top">
+              <span class="projeto-tag">Front-end</span>
+            </div>
+            <div class="projeto-card-body">
+              <h3>Portal de serviços com APIs REST</h3>
+              <p>Interfaces responsivas integradas a serviços backend, com componentes reutilizáveis e estados de carregamento claros.</p>
+              <div class="projeto-stack">
+                <span>JavaScript</span>
+                <span>HTML / CSS</span>
+                <span>REST</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="atuacao" class="servicos surface">
+      <div class="max-container">
+        <div class="servicos-header">
+          <p class="section-label">Atuação</p>
+          <h2 class="section-title">Especialidades</h2>
+          <p>Foco em interfaces, experiência e arquitetura front-end no contexto corporativo.</p>
+        </div>
+        <ul class="servicos-lista">
+          <li class="servico-item">
+            <span class="servico-icon" aria-hidden="true"><img src="svgs/link.svg" alt=""></span>
+            <div class="servico-body">
+              <h3>Interfaces Front-end</h3>
+              <div class="servico-tags">
+                <span>Vue.js</span>
+                <span>TypeScript</span>
+                <span>HTML / CSS / SCSS</span>
+              </div>
+            </div>
+            <span class="servico-num">01</span>
+          </li>
+          <li class="servico-item">
+            <span class="servico-icon" aria-hidden="true"><img src="svgs/link.svg" alt=""></span>
+            <div class="servico-body">
+              <h3>UX/UI &amp; Prototipação</h3>
+              <div class="servico-tags">
+                <span>Figma</span>
+                <span>Wireframes</span>
+                <span>Alta fidelidade</span>
+              </div>
+            </div>
+            <span class="servico-num">02</span>
+          </li>
+          <li class="servico-item">
+            <span class="servico-icon" aria-hidden="true"><img src="svgs/link.svg" alt=""></span>
+            <div class="servico-body">
+              <h3>Micro Frontends</h3>
+              <div class="servico-tags">
+                <span>Modularidade</span>
+                <span>Reúso</span>
+                <span>Escalabilidade</span>
+              </div>
+            </div>
+            <span class="servico-num">03</span>
+          </li>
+          <li class="servico-item">
+            <span class="servico-icon" aria-hidden="true"><img src="svgs/link.svg" alt=""></span>
+            <div class="servico-body">
+              <h3>Integração com APIs</h3>
+              <div class="servico-tags">
+                <span>REST</span>
+                <span>Consumo de serviços</span>
+                <span>Componentes</span>
+              </div>
+            </div>
+            <span class="servico-num">04</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experiencia" class="experiencia surface">
+      <div class="max-container">
+        <div class="experiencia-layout">
+          <div class="experiencia-intro">
+            <p class="section-label">Experiência</p>
+            <h2 class="section-title">Trajetória e formação</h2>
+            <p>No dia a dia corporativo, conecto áreas de negócio e produto: levanto requisitos, desenho fluxos e entrego interfaces prontas para produção — com atenção a usabilidade, acessibilidade e manutenção.</p>
+            <p>A formação contínua em UX (FIAP) e na trilha Origamid sustenta essa ponte entre design e código.</p>
+          </div>
+          <div class="experiencia-cursos">
+            <h3>Cursos e certificações</h3>
+            <div class="curso-item"><strong>User Experience</strong><span>FIAP</span></div>
+            <div class="curso-item"><strong>UI Design para Iniciantes</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>UI Design Avançado</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>HTML e CSS para Iniciantes</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>CSS Flexbox</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>CSS Grid Layout</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>CSS Avançado Posicionamento</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>CSS com SASS</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>JavaScript Completo ES6</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>TypeScript para Iniciantes</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>React Completo</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>React com TypeScript</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>Redux com React</strong><span>Origamid</span></div>
+            <div class="curso-item"><strong>Next.js</strong><span>Origamid</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos surface">
+      <div class="max-container">
+        <div class="depoimentos-header">
+          <p class="section-label">Depoimentos</p>
+          <h2 class="section-title">O que dizem sobre o trabalho</h2>
+        </div>
+        <div class="depoimentos-grid">
+          <article class="depoimento-card">
+            <div class="depoimento-rating" aria-label="5 de 5">★★★★★</div>
+            <blockquote>“Esly traduz requisitos complexos em interfaces claras. A entrega chegou alinhada ao que o negócio precisava — e com cuidado real de UX.”</blockquote>
+            <div class="depoimento-autor">
+              <strong>Ana Ribeiro</strong>
+              <span>Product Owner · placeholder</span>
+            </div>
+          </article>
+          <article class="depoimento-card">
+            <div class="depoimento-rating" aria-label="5 de 5">★★★★★</div>
+            <blockquote>“Ótima parceria no front: código organizado, comunicação objetiva e protótipos que aceleraram as validações com o time.”</blockquote>
+            <div class="depoimento-autor">
+              <strong>Carlos Mendes</strong>
+              <span>Tech Lead · placeholder</span>
+            </div>
+          </article>
+          <article class="depoimento-card">
+            <div class="depoimento-rating" aria-label="5 de 5">★★★★★</div>
+            <blockquote>“Do wireframe ao componente em produção, o processo foi fluido. Micro frontends e design system saíram com consistência.”</blockquote>
+            <div class="depoimento-autor">
+              <strong>Juliana Costa</strong>
+              <span>Designer · placeholder</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contato surface">
+      <div class="max-container">
+        <div class="contato-layout">
+          <div class="contato-heading">
+            <p class="section-label">Contato</p>
+            <h2 class="section-title">Fale comigo</h2>
+            <p>Aberto a conversas sobre oportunidades, projetos e colaboração. Envie uma mensagem e retorno em breve.</p>
+            <ul class="contato-dados">
+              <li>
+                <span>Telefone</span>
+                <a href="tel:+5511987528603">+55 (11) 98752-8603</a>
+              </li>
+              <li>
+                <span>Localização</span>
+                <strong>Franco da Rocha — SP, Brasil</strong>
+              </li>
+            </ul>
+          </div>
+          <form id="contato-form" class="contato-form" action="#" method="post" novalidate>
+            <div class="form-field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-field">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+            </div>
+            <button class="btn-hero" type="submit">enviar mensagem<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="max-container">
+      <p class="footer-brand" aria-hidden="true">Esly Barbosa</p>
+      <div class="footer-content">
+        <div class="footer-col footer-col--about">
+          <h3>Marca</h3>
+          <p>Front-end corporativo, UX/UI e Micro Frontends — interfaces pensadas para quem usa.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Navegação</h3>
+          <nav class="footer-links" aria-label="Rodapé">
+            <a href="#sobre">Sobre</a>
+            <a href="projetos.html">Projetos</a>
+            <a href="#atuacao">Atuação</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#contato">Contato</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h3>Contato</h3>
+          <nav class="footer-links" aria-label="Contato">
+            <a href="tel:+5511987528603">+55 (11) 98752-8603</a>
+            <span class="footer-loc">Franco da Rocha — SP</span>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Esly Barbosa. Todos os direitos reservados.</p>
+        <div class="footer-social">
+          <a href="#topo">Voltar ao topo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/hero-pill.js" defer></script>
+  <script src="scripts/contato.js" defer></script>
+</body>
+
+</html>
