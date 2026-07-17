@@ -38,22 +38,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap">
-  <link rel="stylesheet" href="estilos/colors.css">
-  <link rel="stylesheet" href="estilos/global.css">
-  <link rel="stylesheet" href="estilos/scrollbar.css">
-  <link rel="stylesheet" href="estilos/tipografia.css">
+  <link rel="stylesheet" href="estilos/tokens.css">
+  <link rel="stylesheet" href="estilos/base.css">
+  <link rel="stylesheet" href="estilos/chrome.css">
   <link rel="stylesheet" href="estilos/animacoes.css">
-  <link rel="stylesheet" href="estilos/header.css">
   <link rel="stylesheet" href="estilos/hero.css">
-  <link rel="stylesheet" href="estilos/sobre.css">
+  <link rel="stylesheet" href="estilos/sections.css">
   <link rel="stylesheet" href="estilos/projetos.css">
-  <link rel="stylesheet" href="estilos/servicos.css">
-  <link rel="stylesheet" href="estilos/experiencia.css">
-  <link rel="stylesheet" href="estilos/depoimentos.css">
-  <link rel="stylesheet" href="estilos/contato.css">
-  <link rel="stylesheet" href="estilos/footer.css">
   <link rel="stylesheet" href="estilos/acessibilidade.css">
-  <link rel="stylesheet" href="estilos/loader.css">
   <link rel="prefetch" href="projetos.html">
 
   <script type="application/ld+json">
@@ -119,15 +111,7 @@
 </head>
 
 <body>
-  <div
-    id="page-loader"
-    class="page-loader"
-    role="status"
-    aria-live="polite"
-    aria-busy="true"
-    aria-label="Carregando o site"
-    style="background:#101114"
-  >
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-busy="true" aria-label="Carregando o site" style="background:#101114">
     <div class="page-loader-inner">
       <img class="page-loader-star" src="svgs/estrela.svg" alt="" width="48" height="48" decoding="async">
       <p class="page-loader-brand">Esly Barbosa</p>
@@ -138,7 +122,6 @@
     </div>
   </div>
   <script src="scripts/loader.js"></script>
-  <a class="skip-link" href="#topo">Pular para o conteúdo</a>
   <header class="header">
     <div class="max-container divider-container">
       <a class="header-logo" href="index.html" aria-label="Esly Barbosa — Ir para o início">
@@ -176,26 +159,20 @@
   <main id="topo">
     <section class="hero surface surface-corner" aria-label="Apresentação">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
-      <div class="hero-foto anim anim-fade-left anim-slow anim-delay-3" aria-label="Cena 3D interativa">
-        <spline-viewer url="https://prod.spline.design/pOSFu-wc0YwnK3-a/scene.splinecode"></spline-viewer>
-      </div>
+      <figure class="hero-foto anim anim-fade-left anim-delay-3" aria-label="Cena 3D interativa">
+        <spline-viewer url="https://prod.spline.design/eK6ezm5zYfWsnxHX/scene.splinecode"></spline-viewer>
+      </figure>
       <div class="max-container">
         <div class="hero-content">
           <span class="hero-pill-magnet">
             <span class="hero-pill"><span>Front End Developer</span></span>
           </span>
           <p class="hero-greeting anim anim-fade-up anim-delay-1">Olá, eu sou</p>
-          <div class="hero-title anim anim-blur-in anim-delay-2">
-            <h1>Esly Barbosa</h1>
-          </div>
+          <h1 class="anim anim-blur-in anim-delay-2">Esly Barbosa</h1>
         </div>
         <div class="introducao">
-          <div class="introducao-content anim anim-fade-up anim-delay-4">
-            <p>Criando interfaces modernas, performáticas e focadas na experiência do usuário.</p>
-          </div>
-          <div class="introducao-botao anim anim-fade-up anim-delay-5">
-            <a class="btn-hero" href="#contato">Começar Projeto<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
-          </div>
+          <p class="anim anim-fade-up anim-delay-4">Criando interfaces modernas, performáticas e focadas na experiência do usuário.</p>
+          <a class="btn-hero anim anim-fade-up anim-delay-5" href="#contato">Começar Projeto<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>
@@ -204,7 +181,7 @@
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
       <div class="max-container">
         <div class="sobre-layout">
-          <div class="sobre-heading reveal-group">
+          <div class="sobre-heading section-header reveal-group">
             <p class="section-label reveal-item">
               <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
               Sobre mim
@@ -352,13 +329,13 @@
     <section id="atuacao" class="servicos surface surface-corner" aria-labelledby="atuacao-titulo">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
       <div class="max-container">
-        <div class="servicos-header reveal-group">
+        <div class="servicos-header section-header reveal-group">
           <p class="section-label reveal-item">
             <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
             Atuação
           </p>
           <h2 class="section-title reveal-item" id="atuacao-titulo">Especialidades</h2>
-          <p class="reveal-item">Foco em interfaces, experiência e arquitetura front-end no contexto corporativo.</p>
+          <p class="section-lead reveal-item">Foco em interfaces, experiência e arquitetura front-end no contexto corporativo.</p>
         </div>
         <ul class="servicos-lista reveal-group">
           <li class="servico-item reveal-item">
@@ -416,16 +393,16 @@
     <section id="experiencia" class="experiencia surface surface-corner" aria-labelledby="experiencia-titulo">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
       <div class="max-container">
-        <div class="experiencia-layout">
+        <div class="split-layout">
           <div class="experiencia-intro reveal-group">
             <p class="section-label reveal-item">
               <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
               Experiência
             </p>
             <h2 class="section-title reveal-item" id="experiencia-titulo">Trajetória e formação</h2>
-            <p class="reveal-item">No dia a dia, trabalho em conjunto com as áreas de negócio para entender as necessidades, definir soluções e transformar ideias em interfaces prontas para produção. Busco desenvolver aplicações que sejam intuitivas, acessíveis e fáceis de manter.</p>
+            <p class="section-lead reveal-item">No dia a dia, trabalho em conjunto com as áreas de negócio para entender as necessidades, definir soluções e transformar ideias em interfaces prontas para produção. Busco desenvolver aplicações que sejam intuitivas, acessíveis e fáceis de manter.</p>
 
-            <p class="reveal-item">Também invisto constantemente na minha evolução profissional. Atualmente estou me aprofundando em UX pela FIAP e aprimorando meus conhecimentos em Front-end por meio da Origamid, buscando unir cada vez mais design e desenvolvimento na criação de produtos digitais.</p>
+            <p class="section-lead reveal-item">Também invisto constantemente na minha evolução profissional. Atualmente estou me aprofundando em UX pela FIAP e aprimorando meus conhecimentos em Front-end por meio da Origamid, buscando unir cada vez mais design e desenvolvimento na criação de produtos digitais.</p>
           </div>
           <div class="experiencia-cursos reveal-group reveal-left">
             <h3 class="reveal-item" id="cursos-titulo">Cursos e certificações</h3>
@@ -453,7 +430,7 @@
     <section id="depoimentos" class="depoimentos surface surface-corner" aria-labelledby="depoimentos-titulo">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
       <div class="max-container">
-        <div class="depoimentos-header reveal-group">
+        <div class="depoimentos-header section-header reveal-group">
           <p class="section-label reveal-item">
             <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
             Depoimentos
@@ -468,7 +445,10 @@
               <strong itemprop="name">Ana Ribeiro</strong>
               <span itemprop="jobTitle">Product Owner · placeholder</span>
             </div>
-            <meta itemprop="reviewRating" content="5">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5">
+              <meta itemprop="bestRating" content="5">
+            </div>
           </article>
           <article class="depoimento-card reveal-item" itemscope itemtype="https://schema.org/Review">
             <div class="depoimento-rating" aria-label="5 de 5">★★★★★</div>
@@ -477,7 +457,10 @@
               <strong itemprop="name">Carlos Mendes</strong>
               <span itemprop="jobTitle">Tech Lead · placeholder</span>
             </div>
-            <meta itemprop="reviewRating" content="5">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5">
+              <meta itemprop="bestRating" content="5">
+            </div>
           </article>
           <article class="depoimento-card reveal-item" itemscope itemtype="https://schema.org/Review">
             <div class="depoimento-rating" aria-label="5 de 5">★★★★★</div>
@@ -486,7 +469,10 @@
               <strong itemprop="name">Juliana Costa</strong>
               <span itemprop="jobTitle">Designer · placeholder</span>
             </div>
-            <meta itemprop="reviewRating" content="5">
+            <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content="5">
+              <meta itemprop="bestRating" content="5">
+            </div>
           </article>
         </div>
       </div>
@@ -495,14 +481,14 @@
     <section id="contato" class="contato surface surface-corner" aria-labelledby="contato-titulo">
       <img class="det-sup-dir" src="svgs/detalhe-sup-dir.svg" alt="" aria-hidden="true" decoding="async">
       <div class="max-container">
-        <div class="contato-layout">
+        <div class="split-layout">
           <div class="contato-heading reveal-group">
             <p class="section-label reveal-item">
               <img class="section-label-icon" src="svgs/estrela.svg" width="20" height="20" alt="" aria-hidden="true">
               Contato
             </p>
             <h2 class="section-title reveal-item" id="contato-titulo">Fale comigo</h2>
-            <p class="reveal-item">Aberto a conversas sobre oportunidades, projetos e colaboração. Envie uma mensagem e retorno em breve.</p>
+            <p class="section-lead reveal-item">Aberto a conversas sobre oportunidades, projetos e colaboração. Envie uma mensagem e retorno em breve.</p>
             <ul class="contato-dados reveal-item">
               <li>
                 <span>Telefone</span>

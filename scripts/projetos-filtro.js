@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       botoes.forEach((b) => {
         b.classList.toggle("is-active", b === botao);
-        b.setAttribute("aria-selected", b === botao ? "true" : "false");
+        b.setAttribute("aria-pressed", b === botao ? "true" : "false");
       });
 
       let visiveis = 0;

@@ -133,7 +133,7 @@
   margin-bottom: 2rem;
 }
 
-.page-projetos .projetos-page-intro p:not(.section-label) {
+.page-projetos .projetos-page-intro .section-lead {
   color: var(--b3);
 }
 

@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const groups = Array.from(document.querySelectorAll(".reveal-group"));
   if (!groups.length) return;
 
+  groups.forEach((group) => {
+    const items = Array.from(group.querySelectorAll(".reveal-item")).filter(
+      (el) => el.closest(".reveal-group") === group
+    );
+    items.forEach((item, index) => {
+      item.style.setProperty("--i", String(index));
+    });
+  });
+
   const reduceMotion = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
     document.documentElement.classList.contains("a11y-reduce-motion");
@@ -17,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Sem loader nesta página
       if (!document.getElementById("page-loader")) {
         document.body.classList.add("is-ready");
         resolve();
@@ -58,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
 
-    // Garante um frame com opacity:0 antes de observar (evita “pulo” sem transição)
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         groups.forEach((group) => io.observe(group));

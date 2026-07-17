@@ -1,21 +1,11 @@
-/* Animações reutilizáveis — aplique as classes nos elementos */
+/* Animações — entrada do hero + reveal no scroll */
 
-:root {
-  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --anim-duration: 1s;
-  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --reveal-duration: 1.35s;
-  --reveal-distance: 2rem;
-}
-
-/* Base: necessário junto com a direção (ex.: anim anim-fade-up) */
 .anim {
   animation-duration: var(--anim-duration);
   animation-timing-function: var(--anim-ease);
   animation-fill-mode: both;
 }
 
-/* Só inicia depois do loader (body.is-ready) */
 body:not(.is-ready) .anim {
   animation: none !important;
   opacity: 0;
@@ -23,48 +13,23 @@ body:not(.is-ready) .anim {
   transform: none;
 }
 
-/* Direções / efeitos */
 .anim-fade-up {
   animation-name: anim-fade-up;
-}
-
-.anim-fade-down {
-  animation-name: anim-fade-down;
-}
-
-.anim-fade-in {
-  animation-name: anim-fade-in;
 }
 
 .anim-fade-left {
   animation-name: anim-fade-left;
 }
 
-.anim-fade-right {
-  animation-name: anim-fade-right;
-}
-
-.anim-scale-in {
-  animation-name: anim-scale-in;
-}
-
 .anim-blur-in {
   animation-name: anim-blur-in;
 }
 
-/* Delays em cascata (≈80ms cada) */
 .anim-delay-1 { animation-delay: 0.08s; }
 .anim-delay-2 { animation-delay: 0.16s; }
 .anim-delay-3 { animation-delay: 0.24s; }
 .anim-delay-4 { animation-delay: 0.36s; }
 .anim-delay-5 { animation-delay: 0.48s; }
-.anim-delay-6 { animation-delay: 0.6s; }
-.anim-delay-7 { animation-delay: 0.72s; }
-.anim-delay-8 { animation-delay: 0.84s; }
-
-/* Durações opcionais */
-.anim-fast { animation-duration: 0.5s; }
-.anim-slow { animation-duration: 1s; }
 
 @keyframes anim-fade-up {
   from {
@@ -77,22 +42,6 @@ body:not(.is-ready) .anim {
   }
 }
 
-@keyframes anim-fade-down {
-  from {
-    opacity: 0;
-    transform: translateY(-1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes anim-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes anim-fade-left {
   from {
     opacity: 0;
@@ -101,28 +50,6 @@ body:not(.is-ready) .anim {
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@keyframes anim-fade-right {
-  from {
-    opacity: 0;
-    transform: translateX(-2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes anim-scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -152,63 +79,63 @@ body:not(.is-ready) .anim {
   }
 }
 
-/* ——— Reveal no scroll (seções abaixo do hero) ——— */
+/* Reveal no scroll — animation (não transition) para não sobrescrever hovers */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--reveal-distance) + 0.25rem));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 .reveal-group .reveal-item {
   opacity: 0;
   transform: translateY(var(--reveal-distance));
-  transition: none;
-  will-change: opacity, transform;
 }
 
 .reveal-group.reveal-left .reveal-item {
   transform: translateX(calc(var(--reveal-distance) + 0.25rem));
 }
 
-.reveal-group.reveal-right .reveal-item {
-  transform: translateX(calc((var(--reveal-distance) + 0.25rem) * -1));
-}
-
-/* Só anima depois do loader + quando o grupo entra na tela */
-body.is-ready .reveal-group .reveal-item {
-  transition:
-    opacity var(--reveal-duration) var(--reveal-ease),
-    transform var(--reveal-duration) var(--reveal-ease);
-  transition-delay: 0s;
-}
-
 body.is-ready .reveal-group.is-inview .reveal-item {
   opacity: 1;
   transform: none;
+  animation-name: reveal-up;
+  animation-duration: var(--reveal-duration);
+  animation-timing-function: var(--reveal-ease);
+  animation-fill-mode: backwards;
+  animation-delay: calc(0.08s + var(--i, 0) * 0.12s);
 }
 
-/* Cascata mais espaçada e sobreposta — menos “seca” */
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(1 of .reveal-item) { transition-delay: 0.08s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(2 of .reveal-item) { transition-delay: 0.2s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(3 of .reveal-item) { transition-delay: 0.32s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(4 of .reveal-item) { transition-delay: 0.44s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(5 of .reveal-item) { transition-delay: 0.56s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(6 of .reveal-item) { transition-delay: 0.68s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(7 of .reveal-item) { transition-delay: 0.8s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(8 of .reveal-item) { transition-delay: 0.92s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(9 of .reveal-item) { transition-delay: 1.04s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(10 of .reveal-item) { transition-delay: 1.16s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(11 of .reveal-item) { transition-delay: 1.28s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(12 of .reveal-item) { transition-delay: 1.4s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(13 of .reveal-item) { transition-delay: 1.52s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(14 of .reveal-item) { transition-delay: 1.64s; }
-body.is-ready .reveal-group.is-inview .reveal-item:nth-child(n+15 of .reveal-item) { transition-delay: 1.76s; }
+body.is-ready .reveal-group.reveal-left.is-inview .reveal-item {
+  animation-name: reveal-left;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .reveal-group .reveal-item {
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
+    animation: none !important;
   }
 }
 
 html.a11y-reduce-motion .reveal-group .reveal-item {
   opacity: 1 !important;
   transform: none !important;
-  transition: none !important;
+  animation: none !important;
 }

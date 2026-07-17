@@ -30,22 +30,25 @@ html.a11y-contrast .surface {
   border: 2px solid #000000;
 }
 
-html.a11y-contrast .surface .section-label,
-html.a11y-contrast .surface .section-title,
-html.a11y-contrast .surface p,
-html.a11y-contrast .surface a,
-html.a11y-contrast .surface li,
-html.a11y-contrast .surface label,
-html.a11y-contrast .surface strong,
-html.a11y-contrast .surface dt,
-html.a11y-contrast .surface dd,
-html.a11y-contrast .surface h1,
-html.a11y-contrast .surface h2,
-html.a11y-contrast .surface h3,
-html.a11y-contrast .surface span,
-html.a11y-contrast .surface blockquote,
-html.a11y-contrast .surface input,
-html.a11y-contrast .surface textarea {
+html.a11y-contrast .surface :where(
+  .section-label,
+  .section-title,
+  .section-lead,
+  p,
+  a,
+  li,
+  label,
+  strong,
+  dt,
+  dd,
+  h1,
+  h2,
+  h3,
+  span,
+  blockquote,
+  input,
+  textarea
+) {
   color: #000000;
 }
 
