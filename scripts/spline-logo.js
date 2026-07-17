@@ -239,6 +239,10 @@
   };
 
   const figure = document.querySelector(".hero-foto");
+  const isPhone = () => window.matchMedia("(max-width: 600px)").matches;
+
+  // Celular: não carrega o Spline (economia de performance)
+  if (isPhone()) return;
 
   if (isMobile()) {
     // Mobile: carrega só no toque/scroll até o hero (bem mais leve no boot)

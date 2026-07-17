@@ -317,4 +317,20 @@
     padding: 1.35rem;
     border-radius: 20px;
   }
+
+  .projeto-card--has-media {
+    padding: 0;
+  }
+
+  .projeto-card--has-media .projeto-card-media {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .projeto-card--has-media .projeto-card-top {
+    padding: 1.25rem 21px 0;
+  }
+
+  .projeto-card--has-media .projeto-card-body {
+    padding: 1rem 21px 21px;
+  }
 }
