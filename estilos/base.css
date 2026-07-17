@@ -178,6 +178,17 @@ button:focus-visible,
     border-radius: 24px;
     padding: 2rem 0;
   }
+
+  /* Abaixo do hero: adia trabalho de layout/paint fora da tela */
+  .sobre,
+  .projetos,
+  .servicos,
+  .experiencia,
+  .depoimentos,
+  .contato {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 520px;
+  }
 }
 
 /* ——— Section chrome ——— */

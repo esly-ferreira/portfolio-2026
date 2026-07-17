@@ -1,16 +1,38 @@
-(async function hideSplineLogo() {
-  try {
-    await customElements.whenDefined("spline-viewer");
-  } catch {
-    return;
-  }
-
+(async function initSpline() {
   const viewer = document.querySelector(".hero-foto spline-viewer");
   if (!viewer) return;
 
+  const SPLINE_SRC =
+    "https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js";
   const STYLE_ID = "hide-spline-logo";
+  const isCoarse = () =>
+    window.matchMedia("(max-width: 900px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
 
-  const injectStyle = (root) => {
+  let started = false;
+  let app = null;
+
+  const loadViewerScript = () => {
+    if (window.customElements?.get("spline-viewer")) {
+      return Promise.resolve();
+    }
+    if (document.querySelector('script[data-spline-viewer]')) {
+      return customElements.whenDefined("spline-viewer");
+    }
+
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.type = "module";
+      script.src = SPLINE_SRC;
+      script.dataset.splineViewer = "1";
+      script.onload = () =>
+        customElements.whenDefined("spline-viewer").then(resolve).catch(reject);
+      script.onerror = reject;
+      document.body.appendChild(script);
+    });
+  };
+
+  const injectLogoStyle = (root) => {
     if (!root || root.getElementById(STYLE_ID)) return;
     const style = document.createElement("style");
     style.id = STYLE_ID;
@@ -24,7 +46,6 @@
         height: 0 !important;
         overflow: hidden !important;
         position: absolute !important;
-        inset: auto !important;
       }
     `;
     root.appendChild(style);
@@ -33,12 +54,9 @@
   const hideLogo = () => {
     const root = viewer.shadowRoot;
     if (!root) return false;
-
-    injectStyle(root);
-
+    injectLogoStyle(root);
     const logo = root.querySelector("#logo");
     if (!logo) return false;
-
     logo.style.setProperty("display", "none", "important");
     logo.setAttribute("aria-hidden", "true");
     logo.removeAttribute("href");
@@ -46,93 +64,181 @@
     return true;
   };
 
-  const lockLogoDisplay = () => {
-    const logo = viewer.shadowRoot?.querySelector("#logo");
-    if (!logo || logo.dataset.logoLocked === "1") return;
-
-    logo.dataset.logoLocked = "1";
-    const style = logo.style;
-    const originalSetProperty = style.setProperty.bind(style);
-
-    style.setProperty = (name, value, priority) => {
-      if (String(name).toLowerCase() === "display") {
-        return originalSetProperty("display", "none", "important");
-      }
-      return originalSetProperty(name, value, priority);
-    };
-
-    try {
-      Object.defineProperty(style, "display", {
-        configurable: true,
-        get() {
-          return "none";
-        },
-        set() {
-          originalSetProperty("display", "none", "important");
-        },
-      });
-    } catch {
-      /* ignore if browser blocks */
-    }
-  };
-
-  const apply = () => {
-    hideLogo();
-    lockLogoDisplay();
-  };
-
-  apply();
-
-  const observer = new MutationObserver(apply);
-  observer.observe(viewer, { childList: true, subtree: true, attributes: true });
-
-  if (viewer.shadowRoot) {
-    observer.observe(viewer.shadowRoot, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["style", "class"],
-    });
-  }
-
-  viewer.addEventListener("load-complete", apply);
-  viewer.addEventListener("load", apply);
-
   const syncViewerSize = () => {
     const host = viewer.parentElement;
     if (!host) return;
 
-    const mobile = window.matchMedia("(max-width: 900px)").matches;
-    if (!mobile) {
+    if (!window.matchMedia("(max-width: 900px)").matches) {
       viewer.style.removeProperty("width");
       viewer.style.removeProperty("height");
       return;
     }
 
-    /* Medida fixa — não acompanhar o encolhimento do layout */
     const styles = getComputedStyle(host);
     const w = styles.getPropertyValue("--spline-size-w").trim() || "380px";
     const h = styles.getPropertyValue("--spline-size-h").trim() || "440px";
     viewer.style.width = w;
     viewer.style.height = h;
-    window.dispatchEvent(new Event("resize"));
   };
 
-  if (typeof ResizeObserver !== "undefined") {
-    const resizeObserver = new ResizeObserver(() => {
-      syncViewerSize();
-      apply();
+  const findApp = () =>
+    viewer.spline ||
+    viewer.application ||
+    viewer._application ||
+    viewer.shadowRoot?.querySelector("canvas")?.__spline ||
+    null;
+
+  const setMobileQuality = () => {
+    if (!isCoarse()) return;
+    app = findApp() || app;
+    try {
+      if (app?.setPixelRatio) {
+        app.setPixelRatio(Math.min(1.25, window.devicePixelRatio || 1));
+      }
+    } catch {
+      /* ignore */
+    }
+
+    const canvas = viewer.shadowRoot?.querySelector("canvas");
+    if (canvas) {
+      canvas.style.imageRendering = "auto";
+    }
+  };
+
+  const setPlaying = (play) => {
+    app = findApp() || app;
+    try {
+      if (play) {
+        app?.play?.();
+        app?.start?.();
+        viewer.play?.();
+      } else {
+        app?.stop?.();
+        app?.pause?.();
+        viewer.pause?.();
+      }
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const setupVisibilityControl = () => {
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const visible = Boolean(entry?.isIntersecting);
+        setPlaying(visible);
+        if (visible) {
+          hideLogo();
+          syncViewerSize();
+        }
+      },
+      { root: null, rootMargin: "80px 0px", threshold: 0.05 }
+    );
+
+    observer.observe(viewer.parentElement || viewer);
+  };
+
+  const setupLogoWatch = () => {
+    hideLogo();
+
+    const root = viewer.shadowRoot;
+    if (!root || !("MutationObserver" in window)) return;
+
+    let tries = 0;
+    const observer = new MutationObserver(() => {
+      hideLogo();
+      if (hideLogo() || ++tries > 40) observer.disconnect();
     });
-    resizeObserver.observe(viewer.parentElement || viewer);
-  }
 
-  window.addEventListener("resize", syncViewerSize, { passive: true });
-  syncViewerSize();
+    observer.observe(root, { childList: true, subtree: true });
+    window.setTimeout(() => observer.disconnect(), 8000);
+  };
 
-  const started = Date.now();
-  const timer = setInterval(() => {
-    apply();
+  const setupSizeWatch = () => {
     syncViewerSize();
-    if (Date.now() - started > 15000) clearInterval(timer);
-  }, 100);
+
+    let resizeTimer = 0;
+    const onResize = () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(syncViewerSize, 150);
+    };
+
+    window.addEventListener("resize", onResize, { passive: true });
+
+    if ("ResizeObserver" in window && viewer.parentElement) {
+      const ro = new ResizeObserver(onResize);
+      ro.observe(viewer.parentElement);
+    }
+  };
+
+  const start = async () => {
+    if (started) return;
+    started = true;
+
+    try {
+      await loadViewerScript();
+      await customElements.whenDefined("spline-viewer");
+    } catch {
+      return;
+    }
+
+    setupSizeWatch();
+    setupLogoWatch();
+    setupVisibilityControl();
+
+    viewer.addEventListener(
+      "load-complete",
+      () => {
+        hideLogo();
+        setMobileQuality();
+        syncViewerSize();
+        app = findApp();
+      },
+      { once: true }
+    );
+
+    // Se já carregou antes do listener
+    window.setTimeout(() => {
+      hideLogo();
+      setMobileQuality();
+      syncViewerSize();
+    }, 500);
+  };
+
+  const whenIdle = (fn, timeout) => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(fn, { timeout });
+    } else {
+      window.setTimeout(fn, Math.min(timeout, 1200));
+    }
+  };
+
+  const whenReady = (fn) => {
+    if (document.body.classList.contains("is-ready")) {
+      fn();
+      return;
+    }
+
+    const obs = new MutationObserver(() => {
+      if (document.body.classList.contains("is-ready")) {
+        obs.disconnect();
+        fn();
+      }
+    });
+    obs.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    window.setTimeout(fn, 2500);
+  };
+
+  // Celular: atrasa o WebGL para liberar a UI; desktop: após o loader
+  if (isCoarse()) {
+    const kick = () => whenIdle(() => start(), 2800);
+    whenReady(kick);
+    document
+      .querySelector(".hero-foto")
+      ?.addEventListener("pointerdown", () => start(), { once: true });
+  } else {
+    whenReady(() => whenIdle(() => start(), 1200));
+  }
 })();

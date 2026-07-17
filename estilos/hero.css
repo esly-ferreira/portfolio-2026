@@ -70,7 +70,7 @@
 /* Legenda — mesmas medidas/breakpoints do .hero-foto (mexa aqui) */
 .hero-interact-hint {
   position: absolute;
-  right: 3%;git 
+  right: 3%;
   bottom: 4%;
   width: min(95%, 1100px);
   height: min(105%, 980px);
@@ -214,6 +214,28 @@ body.is-ready .hero-pill::before {
 
   .hero-pill {
     opacity: 1;
+  }
+}
+
+/* Celular / touch — menos custo de paint/composição */
+@media (max-width: 900px), (pointer: coarse) {
+  .hero-pill-magnet {
+    will-change: auto;
+  }
+
+  .hero-pill {
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+  }
+
+  .hero-pill::before {
+    animation: none;
+    display: none;
+  }
+
+  .hero-foto spline-viewer {
+    content-visibility: auto;
+    contain: layout paint;
   }
 }
 
