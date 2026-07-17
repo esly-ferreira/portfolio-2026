@@ -98,9 +98,41 @@
   viewer.addEventListener("load-complete", apply);
   viewer.addEventListener("load", apply);
 
+  const syncViewerSize = () => {
+    const host = viewer.parentElement;
+    if (!host) return;
+
+    const mobile = window.matchMedia("(max-width: 900px)").matches;
+    if (!mobile) {
+      viewer.style.removeProperty("width");
+      viewer.style.removeProperty("height");
+      return;
+    }
+
+    /* Medida fixa — não acompanhar o encolhimento do layout */
+    const styles = getComputedStyle(host);
+    const w = styles.getPropertyValue("--spline-size-w").trim() || "380px";
+    const h = styles.getPropertyValue("--spline-size-h").trim() || "440px";
+    viewer.style.width = w;
+    viewer.style.height = h;
+    window.dispatchEvent(new Event("resize"));
+  };
+
+  if (typeof ResizeObserver !== "undefined") {
+    const resizeObserver = new ResizeObserver(() => {
+      syncViewerSize();
+      apply();
+    });
+    resizeObserver.observe(viewer.parentElement || viewer);
+  }
+
+  window.addEventListener("resize", syncViewerSize, { passive: true });
+  syncViewerSize();
+
   const started = Date.now();
   const timer = setInterval(() => {
     apply();
+    syncViewerSize();
     if (Date.now() - started > 15000) clearInterval(timer);
   }, 100);
 })();
