@@ -5,12 +5,14 @@
   const SPLINE_SRC =
     "https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js";
   const STYLE_ID = "hide-spline-logo";
-  const isCoarse = () =>
+  const isMobile = () =>
     window.matchMedia("(max-width: 900px)").matches ||
-    window.matchMedia("(pointer: coarse)").matches;
+    window.matchMedia("(pointer: coarse)").matches ||
+    navigator.maxTouchPoints > 1;
 
   let started = false;
   let app = null;
+  let playing = false;
 
   const loadViewerScript = () => {
     if (window.customElements?.get("spline-viewer")) {
@@ -36,18 +38,7 @@
     if (!root || root.getElementById(STYLE_ID)) return;
     const style = document.createElement("style");
     style.id = STYLE_ID;
-    style.textContent = `
-      #logo {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        width: 0 !important;
-        height: 0 !important;
-        overflow: hidden !important;
-        position: absolute !important;
-      }
-    `;
+    style.textContent = `#logo{display:none!important;pointer-events:none!important}`;
     root.appendChild(style);
   };
 
@@ -85,28 +76,40 @@
     viewer.spline ||
     viewer.application ||
     viewer._application ||
-    viewer.shadowRoot?.querySelector("canvas")?.__spline ||
     null;
 
-  const setMobileQuality = () => {
-    if (!isCoarse()) return;
+  const applyQuality = () => {
     app = findApp() || app;
+    const dpr = isMobile()
+      ? 1
+      : Math.min(1.5, window.devicePixelRatio || 1);
+
     try {
-      if (app?.setPixelRatio) {
-        app.setPixelRatio(Math.min(1.25, window.devicePixelRatio || 1));
-      }
+      app?.setPixelRatio?.(dpr);
     } catch {
       /* ignore */
     }
 
     const canvas = viewer.shadowRoot?.querySelector("canvas");
-    if (canvas) {
-      canvas.style.imageRendering = "auto";
+    if (!canvas) return;
+
+    // Força canvas mais leve no mobile
+    if (isMobile()) {
+      const rect = canvas.getBoundingClientRect();
+      const w = Math.max(1, Math.round(rect.width));
+      const h = Math.max(1, Math.round(rect.height));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
     }
   };
 
   const setPlaying = (play) => {
+    if (play === playing && app) return;
+    playing = play;
     app = findApp() || app;
+
     try {
       if (play) {
         app?.play?.();
@@ -127,50 +130,54 @@
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const visible = Boolean(entry?.isIntersecting);
+        const visible =
+          Boolean(entry?.isIntersecting) &&
+          (entry.intersectionRatio ?? 0) > 0.12;
         setPlaying(visible);
         if (visible) {
           hideLogo();
+          applyQuality();
           syncViewerSize();
         }
       },
-      { root: null, rootMargin: "80px 0px", threshold: 0.05 }
+      { root: null, rootMargin: "0px", threshold: [0, 0.12, 0.35] }
     );
 
     observer.observe(viewer.parentElement || viewer);
+
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+        if (document.hidden) setPlaying(false);
+      },
+      { passive: true }
+    );
   };
 
   const setupLogoWatch = () => {
     hideLogo();
-
     const root = viewer.shadowRoot;
     if (!root || !("MutationObserver" in window)) return;
 
     let tries = 0;
     const observer = new MutationObserver(() => {
-      hideLogo();
-      if (hideLogo() || ++tries > 40) observer.disconnect();
+      if (hideLogo() || ++tries > 20) observer.disconnect();
     });
-
     observer.observe(root, { childList: true, subtree: true });
-    window.setTimeout(() => observer.disconnect(), 8000);
+    window.setTimeout(() => observer.disconnect(), 4000);
   };
 
   const setupSizeWatch = () => {
     syncViewerSize();
-
     let resizeTimer = 0;
     const onResize = () => {
       window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(syncViewerSize, 150);
+      resizeTimer = window.setTimeout(() => {
+        syncViewerSize();
+        applyQuality();
+      }, 200);
     };
-
     window.addEventListener("resize", onResize, { passive: true });
-
-    if ("ResizeObserver" in window && viewer.parentElement) {
-      const ro = new ResizeObserver(onResize);
-      ro.observe(viewer.parentElement);
-    }
   };
 
   const start = async () => {
@@ -192,26 +199,27 @@
       "load-complete",
       () => {
         hideLogo();
-        setMobileQuality();
+        applyQuality();
         syncViewerSize();
         app = findApp();
+        // No mobile, render só enquanto a aba/hero estão ativos
+        if (isMobile() && document.hidden) setPlaying(false);
       },
       { once: true }
     );
 
-    // Se já carregou antes do listener
     window.setTimeout(() => {
       hideLogo();
-      setMobileQuality();
+      applyQuality();
       syncViewerSize();
-    }, 500);
+    }, 400);
   };
 
   const whenIdle = (fn, timeout) => {
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(fn, { timeout });
     } else {
-      window.setTimeout(fn, Math.min(timeout, 1200));
+      window.setTimeout(fn, Math.min(timeout, 1500));
     }
   };
 
@@ -220,7 +228,6 @@
       fn();
       return;
     }
-
     const obs = new MutationObserver(() => {
       if (document.body.classList.contains("is-ready")) {
         obs.disconnect();
@@ -228,17 +235,36 @@
       }
     });
     obs.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    window.setTimeout(fn, 2500);
+    window.setTimeout(fn, 3000);
   };
 
-  // Celular: atrasa o WebGL para liberar a UI; desktop: após o loader
-  if (isCoarse()) {
-    const kick = () => whenIdle(() => start(), 2800);
-    whenReady(kick);
-    document
-      .querySelector(".hero-foto")
-      ?.addEventListener("pointerdown", () => start(), { once: true });
+  const figure = document.querySelector(".hero-foto");
+
+  if (isMobile()) {
+    // Mobile: carrega só no toque/scroll até o hero (bem mais leve no boot)
+    let armed = false;
+    const arm = () => {
+      if (armed) return;
+      armed = true;
+      whenIdle(() => start(), 800);
+    };
+
+    figure?.addEventListener("pointerdown", arm, { once: true, passive: true });
+
+    if ("IntersectionObserver" in window && figure) {
+      const bootIo = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry?.isIntersecting) return;
+          bootIo.disconnect();
+          whenReady(() => whenIdle(() => start(), 1800));
+        },
+        { root: null, threshold: 0.2 }
+      );
+      bootIo.observe(figure);
+    } else {
+      whenReady(() => whenIdle(() => start(), 2500));
+    }
   } else {
-    whenReady(() => whenIdle(() => start(), 1200));
+    whenReady(() => whenIdle(() => start(), 900));
   }
 })();

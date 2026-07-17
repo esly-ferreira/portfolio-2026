@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const reduceMotion = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-    document.documentElement.classList.contains("a11y-reduce-motion");
+    document.documentElement.classList.contains("a11y-reduce-motion") ||
+    window.matchMedia("(max-width: 900px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
 
   const showAll = () => {
     groups.forEach((group) => group.classList.add("is-inview"));

@@ -120,6 +120,74 @@
   border-color: color-mix(in srgb, var(--w1) 22%, transparent);
 }
 
+.projeto-card--has-media {
+  padding: 0;
+  gap: 0;
+}
+
+.projeto-card-media {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--b3) 8%, var(--w1));
+}
+
+.projeto-card--featured.projeto-card--has-media .projeto-card-media {
+  aspect-ratio: 16 / 11;
+  flex: 1 1 auto;
+  min-height: 220px;
+}
+
+.projeto-card-media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.projeto-card-go {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--w2);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--b1) 22%, transparent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card-go img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.projeto-card-go:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--b1) 28%, transparent);
+}
+
+.projeto-card-go:focus-visible {
+  outline: 2px solid var(--p1);
+  outline-offset: 3px;
+}
+
+.projeto-card--has-media .projeto-card-top {
+  padding: 1.25rem 1.75rem 0;
+}
+
+.projeto-card--has-media .projeto-card-body {
+  padding: 1rem 1.75rem 1.75rem;
+}
+
 /* Página dedicada */
 .page-projetos .projetos-page-hero {
   margin-bottom: 0;

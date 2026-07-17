@@ -25,8 +25,16 @@
   --scrollbar-thumb-active: var(--p3);
 
   --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --anim-duration: 1s;
+  --anim-duration: 0.55s;
   --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --reveal-duration: 1.35s;
-  --reveal-distance: 2rem;
+  --reveal-duration: 0.7s;
+  --reveal-distance: 1rem;
+}
+
+@media (max-width: 900px), (pointer: coarse) {
+  :root {
+    --anim-duration: 0.01ms;
+    --reveal-duration: 0.01ms;
+    --reveal-distance: 0px;
+  }
 }
