@@ -76,7 +76,7 @@
 
     const styles = getComputedStyle(host);
     const w = styles.getPropertyValue("--spline-size-w").trim() || "380px";
-    const h = styles.getPropertyValue("--spline-size-h").trim() || "440px";
+    const h = styles.getPropertyValue("--spline-size-h").trim() || "380px";
     viewer.style.width = w;
     viewer.style.height = h;
   };

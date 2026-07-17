@@ -280,6 +280,24 @@
   max-width: 28ch;
 }
 
+.footer-col--nav {
+  text-align: center;
+  justify-self: center;
+}
+
+.footer-col--nav .footer-links {
+  align-items: center;
+}
+
+.footer-col--contact {
+  text-align: right;
+  justify-self: end;
+}
+
+.footer-col--contact .footer-links {
+  align-items: flex-end;
+}
+
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -359,6 +377,17 @@
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.75rem;
+  }
+
+  .footer-col--nav,
+  .footer-col--contact {
+    text-align: left;
+    justify-self: start;
+  }
+
+  .footer-col--nav .footer-links,
+  .footer-col--contact .footer-links {
+    align-items: flex-start;
   }
 
   .footer-bottom {

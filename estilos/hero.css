@@ -342,7 +342,7 @@ body.is-ready .hero-pill::before {
 
   .hero-foto {
     --spline-size-w: 380px;
-    --spline-size-h: 440px;
+    --spline-size-h: 500px;
     position: relative;
     grid-column: 2;
     grid-row: 1;
@@ -374,7 +374,7 @@ body.is-ready .hero-pill::before {
 
   .hero-interact-hint {
     --spline-size-w: 380px;
-    --spline-size-h: 440px;
+    --spline-size-h: 380px;
     position: relative;
     grid-column: 2;
     grid-row: 1;
