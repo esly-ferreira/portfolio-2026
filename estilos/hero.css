@@ -39,23 +39,6 @@
   pointer-events: auto;
 }
 
-.hero-foto::after {
-  content: "";
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  width: 150px;
-  height: 52px;
-  z-index: 4;
-  pointer-events: none;
-  background: radial-gradient(
-    120% 120% at 100% 100%,
-    var(--w1) 0%,
-    var(--w1) 55%,
-    transparent 100%
-  );
-}
-
 .hero-foto spline-viewer {
   display: block;
   width: 100%;
