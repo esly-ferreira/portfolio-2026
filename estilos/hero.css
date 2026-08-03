@@ -267,6 +267,10 @@ body.is-ready .hero-pill::before {
   max-width: 42ch;
 }
 
+.introducao .cta-actions {
+  pointer-events: auto;
+}
+
 .introducao p {
   font-family: var(--font-sans);
   font-size: 1.0625rem;
@@ -303,35 +307,33 @@ body.is-ready .hero-pill::before {
   }
 }
 
-/* ≤900 — grid: texto | cena
-   display:contents no max-container → padding-inline espelha o container
-   Spline: medida FIXA (não encolher) para não cortar a cena */
+/* ≤900 — tablet e celular: sem Spline nem legenda */
 
 @media (max-width: 900px) {
   .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 380px;
-    grid-template-rows: auto;
-    column-gap: 1.25rem;
-    row-gap: 0;
-    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: auto;
     padding-inline: 24px;
   }
 
   .hero .max-container {
-    display: contents;
+    display: block;
+    width: 100%;
+  }
+
+  .hero-foto,
+  .hero-interact-hint {
+    display: none !important;
   }
 
   .hero-copy {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: end;
+    width: 100%;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    width: 100%;
-    min-width: 0;
   }
 
   .hero-content {
@@ -349,70 +351,11 @@ body.is-ready .hero-pill::before {
     width: 100%;
     z-index: 1;
   }
-
-  .hero-foto {
-    --spline-size-w: 380px;
-    --spline-size-h: 500px;
-    position: relative;
-    grid-column: 2;
-    grid-row: 1;
-    right: auto;
-    bottom: auto;
-    width: var(--spline-size-w);
-    height: var(--spline-size-h);
-    min-width: var(--spline-size-w);
-    min-height: var(--spline-size-h);
-    max-width: var(--spline-size-w);
-    max-height: var(--spline-size-h);
-    aspect-ratio: auto;
-    align-self: end;
-    justify-self: center;
-    z-index: 1;
-    overflow: visible;
-    flex-shrink: 0;
-  }
-
-  .hero-foto spline-viewer {
-    position: absolute;
-    inset: 0;
-    width: var(--spline-size-w) !important;
-    height: var(--spline-size-h) !important;
-    min-height: 0;
-    transform: none;
-    transform-origin: center center;
-  }
-
-  .hero-interact-hint {
-    --spline-size-w: 380px;
-    --spline-size-h: 380px;
-    position: relative;
-    grid-column: 2;
-    grid-row: 1;
-    right: auto;
-    bottom: auto;
-    width: var(--spline-size-w);
-    height: var(--spline-size-h);
-    min-width: var(--spline-size-w);
-    min-height: var(--spline-size-h);
-    max-width: var(--spline-size-w);
-    max-height: var(--spline-size-h);
-    aspect-ratio: auto;
-    align-self: end;
-    justify-self: center;
-    z-index: 5;
-    font-size: 0.65rem;
-    padding-bottom: 0.5rem;
-  }
 }
 
-/* ≤768 — mesma medida do Spline; só o texto/grid muda */
+/* ≤768 — ajustes de tipografia */
 
 @media (max-width: 768px) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr) 380px;
-    column-gap: 1rem;
-  }
-
   .hero-copy {
     gap: 1rem;
   }
@@ -428,31 +371,12 @@ body.is-ready .hero-pill::before {
   .introducao p {
     font-size: 1rem;
   }
-
-  .hero-interact-hint {
-    font-size: 0.6rem;
-  }
 }
 
-/* ≤600 — celular: sem Spline nem legenda */
+/* ≤600 — celular */
 
 @media (max-width: 600px) {
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    row-gap: 0;
-    align-items: stretch;
-  }
-
-  .hero-foto,
-  .hero-interact-hint {
-    display: none !important;
-  }
-
   .hero-copy {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: stretch;
     gap: 0.75rem;
   }
 
@@ -479,7 +403,7 @@ body.is-ready .hero-pill::before {
   }
 }
 
-/* ≤456 — texto não perde padding; Spline não força a largura do grid */
+/* ≤456 — texto não perde padding em telas estreitas */
 @media (max-width: 456px) {
   .hero {
     padding-inline: 16px;

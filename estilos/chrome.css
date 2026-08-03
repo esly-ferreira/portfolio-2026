@@ -50,6 +50,12 @@
   display: block;
   height: 28px;
   width: auto;
+  transition: transform 0.25s ease;
+}
+
+.header-logo:hover img,
+.header-logo:focus-visible img {
+  transform: scale(1.08);
 }
 
 .menu-toggle {
@@ -258,15 +264,21 @@
 .footer {
   background: var(--b2);
   padding: 4rem 0 2rem;
+  overflow-x: clip;
 }
 
 .footer-brand {
   font-family: var(--font-serif);
-  font-size: clamp(4rem, 14vw, 10rem);
+  font-size: clamp(5rem, 17vw, 13rem);
   font-weight: 400;
-  line-height: 0.9;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
   color: color-mix(in srgb, var(--w1) 12%, transparent);
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  overflow: hidden;
   user-select: none;
   pointer-events: none;
 }
@@ -388,6 +400,7 @@
   }
 
   .footer-brand {
+    font-size: clamp(4.25rem, 15vw, 9rem);
     margin-bottom: 2rem;
   }
 

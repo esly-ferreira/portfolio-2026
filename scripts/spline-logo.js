@@ -5,8 +5,10 @@
   const SPLINE_SRC =
     "https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js";
   const STYLE_ID = "hide-spline-logo";
+  const isTabletOrBelow = () =>
+    window.matchMedia("(max-width: 900px)").matches;
   const isMobile = () =>
-    window.matchMedia("(max-width: 900px)").matches ||
+    isTabletOrBelow() ||
     window.matchMedia("(pointer: coarse)").matches ||
     navigator.maxTouchPoints > 1;
 
@@ -215,60 +217,8 @@
     }, 400);
   };
 
-  const whenIdle = (fn, timeout) => {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(fn, { timeout });
-    } else {
-      window.setTimeout(fn, Math.min(timeout, 1500));
-    }
-  };
+  // Tablet e celular: não carrega o Spline (economia de performance)
+  if (isTabletOrBelow()) return;
 
-  const whenReady = (fn) => {
-    if (document.body.classList.contains("is-ready")) {
-      fn();
-      return;
-    }
-    const obs = new MutationObserver(() => {
-      if (document.body.classList.contains("is-ready")) {
-        obs.disconnect();
-        fn();
-      }
-    });
-    obs.observe(document.body, { attributes: true, attributeFilter: ["class"] });
-    window.setTimeout(fn, 3000);
-  };
-
-  const figure = document.querySelector(".hero-foto");
-  const isPhone = () => window.matchMedia("(max-width: 600px)").matches;
-
-  // Celular: não carrega o Spline (economia de performance)
-  if (isPhone()) return;
-
-  if (isMobile()) {
-    // Mobile: carrega só no toque/scroll até o hero (bem mais leve no boot)
-    let armed = false;
-    const arm = () => {
-      if (armed) return;
-      armed = true;
-      whenIdle(() => start(), 800);
-    };
-
-    figure?.addEventListener("pointerdown", arm, { once: true, passive: true });
-
-    if ("IntersectionObserver" in window && figure) {
-      const bootIo = new IntersectionObserver(
-        ([entry]) => {
-          if (!entry?.isIntersecting) return;
-          bootIo.disconnect();
-          whenReady(() => whenIdle(() => start(), 1800));
-        },
-        { root: null, threshold: 0.2 }
-      );
-      bootIo.observe(figure);
-    } else {
-      whenReady(() => whenIdle(() => start(), 2500));
-    }
-  } else {
-    whenReady(() => whenIdle(() => start(), 900));
-  }
+  start();
 })();

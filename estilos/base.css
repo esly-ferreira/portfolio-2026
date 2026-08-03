@@ -182,17 +182,6 @@ button:focus-visible,
     border-radius: 24px;
     padding: 2rem 0;
   }
-
-  /* Abaixo do hero: adia trabalho de layout/paint fora da tela */
-  .sobre,
-  .projetos,
-  .servicos,
-  .experiencia,
-  .depoimentos,
-  .contato {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 520px;
-  }
 }
 
 /* ——— Section chrome ——— */
@@ -319,6 +308,56 @@ button:focus-visible,
 
 .btn-hero:hover span img {
   transform: rotate(45deg);
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: #fff;
+  padding: 10px 12px 10px 22px;
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe57;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px color-mix(in srgb, #25d366 35%, transparent);
+}
+
+.btn-whatsapp span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-whatsapp img {
+  display: block;
+  width: 28px;
+  height: 28px;
 }
 
 .btn-ghost {

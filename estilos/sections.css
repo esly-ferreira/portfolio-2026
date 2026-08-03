@@ -437,9 +437,20 @@
 }
 
 .contato-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .form-field {
@@ -476,6 +487,17 @@
 
 .contato-form .btn-hero {
   align-self: flex-start;
+  margin-top: 0;
+}
+
+.contato-form .btn-hero:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.contato-form-actions {
   margin-top: 0.5rem;
 }
 
@@ -493,6 +515,70 @@
 @media (max-width: 768px) {
   .contato-form .btn-hero {
     width: 100%;
+    justify-content: center;
+  }
+
+  .contato-form-actions .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ——— CTA banner ——— */
+
+.cta-banner {
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.cta-banner-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 2rem;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--p3) 28%, var(--w1)) 0%, var(--w1) 55%),
+    var(--w1);
+  border: 1px solid color-mix(in srgb, var(--b3) 10%, transparent);
+}
+
+.cta-banner-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-width: 42ch;
+}
+
+.cta-banner-copy h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--b2);
+}
+
+.cta-banner-copy p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--b3);
+}
+
+@media (max-width: 768px) {
+  .cta-banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-banner .cta-actions {
+    width: 100%;
+  }
+
+  .cta-banner .cta-actions .btn-hero,
+  .cta-banner .cta-actions .btn-whatsapp {
+    flex: 1 1 auto;
     justify-content: center;
   }
 }
