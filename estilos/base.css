@@ -360,6 +360,49 @@ button:focus-visible,
   height: 28px;
 }
 
+.btn-linkedin {
+  background-color: #0a66c2;
+  color: #fff;
+  padding: 10px 12px 10px 22px;
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn-linkedin:hover {
+  background-color: #004182;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px color-mix(in srgb, #0a66c2 35%, transparent);
+}
+
+.btn-linkedin span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-linkedin img {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
 .btn-ghost {
   display: inline-flex;
   align-items: center;

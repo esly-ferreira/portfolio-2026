@@ -77,26 +77,6 @@ body:not(.is-ready) .anim {
   }
 }
 
-/* Mobile / touch — sem animações de entrada (menos jank e GPU) */
-@media (max-width: 900px), (pointer: coarse) {
-  .anim,
-  body:not(.is-ready) .anim {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-
-  .reveal-group .reveal-item,
-  .reveal-group.reveal-left .reveal-item,
-  body.is-ready .reveal-group.is-inview .reveal-item,
-  body.is-ready .reveal-group.reveal-left.is-inview .reveal-item {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-}
-
 /* Reveal no scroll — animation (não transition) para não sobrescrever hovers */
 
 @keyframes reveal-up {

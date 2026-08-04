@@ -30,11 +30,3 @@
   --reveal-duration: 0.7s;
   --reveal-distance: 1rem;
 }
-
-@media (max-width: 900px), (pointer: coarse) {
-  :root {
-    --anim-duration: 0.01ms;
-    --reveal-duration: 0.01ms;
-    --reveal-distance: 0px;
-  }
-}

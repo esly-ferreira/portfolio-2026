@@ -34,7 +34,10 @@
   <link rel="stylesheet" href="estilos/tokens.css">
   <link rel="stylesheet" href="estilos/base.css">
   <link rel="stylesheet" href="estilos/chrome.css">
+  <link rel="stylesheet" href="estilos/animacoes.css">
+  <link rel="stylesheet" href="estilos/sections.css">
   <link rel="stylesheet" href="estilos/projetos.css">
+  <link rel="stylesheet" href="estilos/fab.css">
   <link rel="stylesheet" href="estilos/acessibilidade.css">
   <link rel="prefetch" href="index.html">
 </head>
@@ -198,6 +201,21 @@
         <p class="projetos-vazio" id="projetos-vazio" hidden>Nenhum projeto nesta categoria ainda.</p>
       </div>
     </section>
+
+    <section class="cta-banner surface" aria-label="Chamada para ação" style="margin-top: 2rem;">
+      <div class="max-container">
+        <div class="cta-banner-inner reveal-group">
+          <div class="cta-banner-copy reveal-item">
+            <h2>Vamos construir algo juntos?</h2>
+            <p>Disponível para novos projetos e parcerias. Escolha como prefere falar comigo.</p>
+          </div>
+          <div class="cta-actions reveal-item">
+            <a class="btn-hero" href="index.html#contato">Começar projeto<span><img src="svgs/link.svg" alt="" aria-hidden="true"></span></a>
+            <a class="btn-whatsapp" href="https://wa.me/5511987528603?text=Ol%C3%A1%20Esly%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">WhatsApp<span><img src="svgs/whatsapp.svg" alt="" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer" role="contentinfo">
@@ -236,8 +254,74 @@
     </div>
   </footer>
 
+  <div class="fab" data-fab>
+    <ul class="fab-panel" id="fab-menu" aria-hidden="true">
+      <li>
+        <a
+          class="fab-action"
+          href="https://wa.me/5511987528603?text=Ol%C3%A1%20Esly%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="fab-action-copy">
+            <strong>WhatsApp</strong>
+            <span>Resposta rápida</span>
+          </span>
+          <span class="fab-action-icon" aria-hidden="true">
+            <img src="svgs/whatsapp.svg" alt="">
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="fab-action"
+          href="https://www.linkedin.com/in/eslybarbosa/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="fab-action-copy">
+            <strong>LinkedIn</strong>
+            <span>Rede profissional</span>
+          </span>
+          <span class="fab-action-icon" aria-hidden="true">
+            <img src="svgs/linkedin.svg" alt="">
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="fab-action" href="index.html#contato">
+          <span class="fab-action-copy">
+            <strong>Contato</strong>
+            <span>Enviar mensagem</span>
+          </span>
+          <span class="fab-action-icon" aria-hidden="true">
+            <img src="svgs/link.svg" alt="">
+          </span>
+        </a>
+      </li>
+    </ul>
+    <div class="fab-anchor">
+      <span class="fab-badge" aria-hidden="true">3</span>
+      <button
+        class="fab-trigger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="fab-menu"
+        aria-label="Abrir opções de contato"
+      >
+        <span class="fab-trigger-star" aria-hidden="true">
+          <img src="svgs/estrela.svg" alt="" width="22" height="22" decoding="async">
+        </span>
+        <span class="fab-trigger-close" aria-hidden="true"></span>
+      </button>
+      <span class="fab-hint" aria-hidden="true">Falar comigo</span>
+    </div>
+  </div>
+
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/projetos-filtro.js" defer></script>
+  <script src="scripts/fab.js" defer></script>
+  <script src="scripts/reveal.js" defer></script>
   <script src="scripts/acessibilidade.js" defer></script>
 </body>
 
