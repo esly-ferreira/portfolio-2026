@@ -322,8 +322,7 @@ html.a11y-contrast .a11y-panel {
 @media (max-width: 768px) {
   .a11y-widget {
     top: auto;
-    bottom: 1rem;
-    transform: none;
+    bottom: 0%
   }
 
   .a11y-panel {

@@ -469,7 +469,7 @@ body.is-ready .hero-pill::before {
 }
 
 /* ≤425 — botões empilhados */
-@media (max-width: 425px) {
+@media (max-width: 405px) {
   .introducao .cta-actions {
     flex-direction: column;
     flex-wrap: nowrap;
