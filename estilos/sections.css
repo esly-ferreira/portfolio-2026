@@ -248,6 +248,8 @@
   gap: 0.2rem;
   padding: 0.85rem 0;
   border-bottom: 1px solid color-mix(in srgb, var(--b3) 10%, transparent);
+  font-size: 15px;
+  color: #101114;
 }
 
 .experiencia-item:first-child {
@@ -700,7 +702,11 @@ html.a11y-reduce-motion .curso-certificado {
   padding: clamp(1.75rem, 4vw, 2.5rem);
   border-radius: 24px;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--p3) 28%, var(--w1)) 0%, var(--w1) 55%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--p3) 28%, var(--w1)) 0%,
+      var(--w1) 55%
+    ),
     var(--w1);
   border: 1px solid color-mix(in srgb, var(--b3) 10%, transparent);
 }
