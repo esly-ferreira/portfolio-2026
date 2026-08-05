@@ -366,27 +366,25 @@ body.is-ready .hero-pill::before {
     width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: stretch;
+    align-items: center;
     gap: 0.5rem;
   }
 
-  .hero .btn-hero,
-  .hero .btn-linkedin {
-    width: auto;
-    flex: 1 1 0;
+  .hero .btn-hero {
+    flex: 0 0 auto;
+    width: fit-content;
     min-width: 0;
-    justify-content: center;
-    padding: 9px 8px 9px 12px;
-    gap: 6px;
-    font-size: 0.6875rem;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
   }
 
-  .hero .btn-hero img,
-  .hero .btn-linkedin img {
-    width: 22px;
-    height: 22px;
+  .hero .btn-linkedin .btn-linkedin-label {
+    display: none;
+  }
+
+  .hero .btn-linkedin {
+    flex: 0 0 auto;
+    justify-content: center;
+    padding: 10px;
+    gap: 0;
   }
 }
 
@@ -468,28 +466,24 @@ body.is-ready .hero-pill::before {
   }
 }
 
-/* ≤425 — botões empilhados */
+/* ≤425 — botões lado a lado com tamanho natural */
 @media (max-width: 405px) {
   .introducao .cta-actions {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
   }
 
-  .hero .btn-hero,
-  .hero .btn-linkedin {
-    width: 100%;
+  .hero .btn-hero {
+    width: fit-content;
     flex: none;
-    justify-content: space-between;
-    padding: 10px 12px 10px 18px;
-    gap: 10px;
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
   }
 
-  .hero .btn-hero img,
-  .hero .btn-linkedin img {
-    width: 26px;
-    height: 26px;
+  .hero .btn-linkedin {
+    width: auto;
+    flex: none;
+    justify-content: center;
+    padding: 10px;
+    gap: 0;
   }
 }
