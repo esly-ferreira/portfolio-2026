@@ -210,13 +210,15 @@ button:focus-visible,
   transition: transform 0.35s ease;
 }
 
-.surface:hover .section-label-icon {
-  animation: section-star-spin 1.1s linear infinite;
+@media (hover: hover) and (pointer: fine) {
+  .surface:hover .section-label-icon {
+    animation: section-star-spin 1.1s linear infinite;
+  }
 }
 
-@media (max-width: 900px), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .surface:hover .section-label-icon {
-    animation: none;
+@media (hover: none), (pointer: coarse) {
+  .surface .section-label-icon {
+    animation: section-star-spin 1.1s linear infinite;
   }
 }
 
@@ -227,8 +229,8 @@ button:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .surface:hover .section-label-icon {
-    animation: none;
+  .section-label-icon {
+    animation: none !important;
   }
 }
 

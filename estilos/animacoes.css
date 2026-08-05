@@ -104,6 +104,8 @@ body:not(.is-ready) .anim {
 .reveal-group .reveal-item {
   opacity: 0;
   transform: translateY(var(--reveal-distance));
+  max-width: 100%;
+  min-width: 0;
 }
 
 .reveal-group.reveal-left .reveal-item {

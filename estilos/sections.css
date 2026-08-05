@@ -9,6 +9,11 @@
   align-items: start;
 }
 
+.split-layout > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 @media (max-width: 900px) {
   .split-layout {
     grid-template-columns: 1fr;
@@ -226,14 +231,19 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .experiencia-intro .section-title {
   margin-bottom: 0.5rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .experiencia-intro .section-lead {
-  max-width: 42ch;
+  max-width: min(42ch, 100%);
+  overflow-wrap: break-word;
 }
 
 .experiencia-lista {
@@ -316,7 +326,8 @@
   letter-spacing: 0.03em;
   color: color-mix(in srgb, var(--b3) 55%, transparent);
   white-space: nowrap;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
   transition: color 0.25s var(--anim-ease);
 }
 
@@ -445,6 +456,14 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+  }
+
+  .curso-item span {
+    white-space: normal;
+  }
+
+  .experiencia-intro .section-lead {
+    max-width: 100%;
   }
 }
 
