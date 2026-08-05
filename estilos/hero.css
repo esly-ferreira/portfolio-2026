@@ -200,41 +200,7 @@ body.is-ready .hero-pill::before {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-pill,
-  .hero-pill::before {
-    animation: none;
-  }
-
-  .hero-pill {
-    opacity: 1;
-  }
-}
-
 /* Celular / touch — menos custo de paint/composição (mantém entrada) */
-@media (max-width: 900px), (pointer: coarse) {
-  .hero-pill-magnet {
-    will-change: auto;
-    transition: none;
-  }
-
-  .hero-pill {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
-  }
-
-  .hero-pill::before,
-  .hero-pill::after {
-    content: none;
-    animation: none;
-    display: none;
-  }
-
-  .hero-foto spline-viewer {
-    contain: strict;
-  }
-}
 
 .hero-greeting {
   color: var(--b3);
