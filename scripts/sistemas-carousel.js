@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!items.length || !track || !toggleBtn || !titleEl || !leadEl) return;
 
-  const IMAGE_SLIDE_MS = 5000;
+  const IMAGE_SLIDE_MS = 30000;
   const VIDEO_INDEX = 0;
   const TEXT_ANIM_MS = 550;
   const CHAR_STAGGER_S = 0.022;
