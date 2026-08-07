@@ -342,15 +342,8 @@ body.is-ready .hero-pill::before {
     min-width: 0;
   }
 
-  .hero .btn-linkedin .btn-linkedin-label {
-    display: none;
-  }
-
   .hero .btn-linkedin {
     flex: 0 0 auto;
-    justify-content: center;
-    padding: 10px;
-    gap: 0;
   }
 }
 
@@ -448,8 +441,5 @@ body.is-ready .hero-pill::before {
   .hero .btn-linkedin {
     width: auto;
     flex: none;
-    justify-content: center;
-    padding: 10px;
-    gap: 0;
   }
 }
