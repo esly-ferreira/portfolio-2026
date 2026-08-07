@@ -35,7 +35,6 @@
 }
 
 .projeto-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 18px 40px color-mix(in srgb, var(--b1) 10%, transparent);
 }
 
