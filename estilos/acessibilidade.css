@@ -105,6 +105,12 @@ html.a11y-contrast .btn-hero {
   border: 2px solid #000000;
 }
 
+html.a11y-contrast .btn-secondary {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
 html.a11y-contrast .btn-whatsapp {
   background-color: #00ff00;
   color: #000000;
@@ -119,7 +125,10 @@ html.a11y-contrast .btn-linkedin {
 
 html.a11y-contrast .btn-ghost {
   color: #000000;
-  border-bottom-color: #000000;
+}
+
+html.a11y-contrast .btn-ghost:hover {
+  color: #0000ee;
 }
 
 html.a11y-reduce-motion *,

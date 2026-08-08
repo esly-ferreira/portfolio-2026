@@ -21,19 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const slides = [
     {
-      title: "Do código à aplicação em produção",
+      title: "Da arquitetura no editor ao produto rodando em produção",
       lead:
-        "Desenvolvo sistemas completos, da arquitetura e implementação no editor ao produto final rodando no navegador. Cada entrega une lógica, interface e experiência do usuário em soluções prontas para o dia a dia.",
+        "Sistema completo não é 'código que funciona'. É lógica, interface e experiência de uso desenhadas juntas, desde a primeira linha até o deploy. Trabalho com Vue.js, TypeScript e Micro Frontends pensando em manutenção, o que eu entrego hoje precisa ser fácil de evoluir daqui a um ano, por mim ou por outro dev do time.",
     },
     {
       title: "Desenvolvimento Front-end",
       lead:
-        "Estrutura, lógica e componentes reutilizáveis. Construo interfaces modernas com Vue.js e TypeScript, combinando tipagem estática, reatividade e gerenciamento de estado consistente, com foco em modularidade, menos erros em compilação e integração fluida com APIs.",
+        "Estrutura, lógica e componentes reutilizáveis. Construo interfaces com Vue.js e TypeScript combinando tipagem estática, reatividade e gerenciamento de estado consistente, arquitetura pensada para reduzir bug em produção, não só em compilação, e para escalar sem reescrever tudo daqui a seis meses.",
     },
     {
       title: "Interface & UX/UI",
       lead:
-        "Da concepção ao design intuitivo. Projetar sistemas vai além do código: criar experiências fluidas, consistentes e funcionais. Cada elemento da interface é pensado no protótipo para garantir facilidade de uso, hierarquia visual clara e eficiência no dia a dia do usuário.",
+        "Da concepção ao design intuitivo. Projetar sistema vai além do código: é decidir, no protótipo, o que o usuário precisa ver primeiro e o que pode esperar. Hierarquia visual clara e fluxo consistente não são estética, são o que separa uma interface que o usuário entende sozinho de uma que precisa de tutorial.",
     },
   ];
 

@@ -123,17 +123,19 @@
               </a>
             </figure>
             <div class="projeto-card-top">
-              <span class="projeto-tag">Sites</span>
+              <span class="projeto-tag">Landing page</span>
+              <span class="projeto-tag projeto-tag--estudo">Estudo</span>
             </div>
             <div class="projeto-card-body">
-              <h3>SkyHouse — Landing page para arquitetura de alto padrão</h3>
-              <p>Experiência premium focada em conversão, combinando animações fluidas, catálogo de projetos e uma identidade visual sofisticada para transmitir exclusividade.</p>
+              <h3>SkyHouse</h3>
+              <p>Landing page genérica não vende imóvel de R$2M+. Cada scroll precisa justificar o padrão do produto: catálogo antes da explicação, animação como argumento, não decoração.</p>
               <div class="projeto-stack">
                 <span>HTML / CSS</span>
                 <span>JavaScript</span>
                 <span>Animações</span>
                 <span>UX/UI</span>
               </div>
+              <button type="button" class="btn-ghost projeto-card-link" data-case="skyhouse">Ver case completo <span class="btn-ghost-arrow" aria-hidden="true">→</span></button>
             </div>
           </article>
 
@@ -146,16 +148,18 @@
             </figure>
             <div class="projeto-card-top">
               <span class="projeto-tag">Protótipo Figma</span>
+              <span class="projeto-tag projeto-tag--estudo">Estudo</span>
             </div>
             <div class="projeto-card-body">
-              <h3>Solanus — Plataforma institucional para energia solar</h3>
-              <p>Protótipo no Figma para apresentar soluções em energia solar de forma clara e persuasiva, com experiência moderna, foco em conversão e comunicação de valor para clientes residenciais e corporativos.</p>
+              <h3>Solanus</h3>
+              <p>Energia solar é decisão de investimento, não só produto técnico. O protótipo parte de uma pergunta: o que o usuário precisa saber, e em que ordem, para confiar e pedir orçamento?</p>
               <div class="projeto-stack">
                 <span>Figma</span>
                 <span>UX/UI</span>
                 <span>Prototipação</span>
                 <span>Institucional</span>
               </div>
+              <button type="button" class="btn-ghost projeto-card-link" data-case="solanus">Ver case completo <span class="btn-ghost-arrow" aria-hidden="true">→</span></button>
             </div>
           </article>
 
@@ -168,6 +172,7 @@
             </figure>
             <div class="projeto-card-top">
               <span class="projeto-tag">Sites</span>
+              <span class="projeto-tag projeto-tag--estudo">Estudo</span>
             </div>
             <div class="projeto-card-body">
               <h3>RoyalMotors</h3>
@@ -187,6 +192,7 @@
             </figure>
             <div class="projeto-card-top">
               <span class="projeto-tag">Sites</span>
+              <span class="projeto-tag projeto-tag--estudo">Estudo</span>
             </div>
             <div class="projeto-card-body">
               <h3>Currículo</h3>
@@ -224,7 +230,7 @@
       <div class="footer-content">
         <div class="footer-col footer-col--about">
           <h3>Marca</h3>
-          <p>Front-end corporativo, UX/UI e Micro Frontends — interfaces pensadas para quem usa.</p>
+          <p>Front-end corporativo, UX/UI e Micro Frontends. Interfaces pensadas para quem usa.</p>
         </div>
         <div class="footer-col footer-col--nav">
           <h3>Navegação</h3>
@@ -319,6 +325,69 @@
     </div>
   </div>
 
+  <dialog class="case-modal" id="case-modal" aria-labelledby="case-modal-title">
+    <div class="case-modal-panel">
+      <button type="button" class="case-modal-close" data-case-close aria-label="Fechar case">
+        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="case-modal-body" data-case-body></div>
+    </div>
+  </dialog>
+
+  <template id="case-skyhouse">
+    <p class="case-modal-eyebrow">Landing page · Estudo</p>
+    <h2 id="case-modal-title">SkyHouse: quando o digital precisa parecer tão alto padrão quanto o produto</h2>
+    <p>O problema: uma landing page genérica não vende imóvel de R$2M+. O público que busca esse tipo de produto já viu dezenas de sites de arquitetura iguais: mesma grid, mesmo carrossel, mesma promessa vaga de "exclusividade".</p>
+    <p>A decisão não foi "fazer uma página bonita". Foi entender que cada segundo de scroll precisava justificar o padrão do produto. Isso definiu o ritmo da animação (fluida, não decorativa), a ordem do catálogo de projetos (mostrar antes de explicar) e a cadência da página inteira.</p>
+    <div class="projeto-resultado">
+      <p class="projeto-resultado-label">O que eu mediria</p>
+      <p>Em produção, acompanharia conversão do formulário de contato e profundidade de scroll até o catálogo: métricas que guiaram a ordem e o ritmo da página.</p>
+    </div>
+    <div class="projeto-stack">
+      <span>HTML / CSS</span>
+      <span>JavaScript</span>
+      <span>Animações</span>
+      <span>UX/UI</span>
+    </div>
+    <a class="case-modal-external" href="https://esly-ferreira.github.io/skyhouse/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+  </template>
+
+  <template id="case-solanus">
+    <p class="case-modal-eyebrow">Protótipo Figma · Estudo</p>
+    <h2 id="case-modal-title">Solanus: de "conceito técnico" a "decisão fácil de tomar"</h2>
+    <p>O problema não era falta de design, era falta de clareza. Energia solar é uma decisão de investimento, e o público (residencial e corporativo) precisa entender valor e retorno antes de qualquer detalhe técnico.</p>
+    <p>O protótipo no Figma foi construído em torno de uma pergunta única: o que essa pessoa precisa saber, e em que ordem, para confiar o suficiente e pedir um orçamento? Essa pergunta guiou toda a hierarquia de informação, da estrutura visual ao texto de cada seção.</p>
+    <div class="projeto-resultado">
+      <p class="projeto-resultado-label">O que eu mediria</p>
+      <p>Em produção, acompanharia taxa de conversão do formulário e tempo até a primeira interação: métricas que guiaram as decisões de estrutura da página.</p>
+    </div>
+    <div class="projeto-stack">
+      <span>Figma</span>
+      <span>UX/UI</span>
+      <span>Prototipação</span>
+      <span>Institucional</span>
+    </div>
+    <a class="case-modal-external" href="https://www.figma.com/design/hrrUiXdt8PVBBzJCVDn071/Sites?node-id=2032-2&t=cQRMUGOJSzXvNRSL-1" target="_blank" rel="noopener noreferrer">Abrir protótipo <span aria-hidden="true">↗</span></a>
+  </template>
+
+  <template id="case-portal">
+    <p class="case-modal-eyebrow">Front-end · Estudo</p>
+    <h2 id="case-modal-title">Portal de serviços: componentes reutilizáveis para um time que não podia parar de crescer</h2>
+    <p>Interfaces responsivas isoladas resolvem problema de tela. Não resolvem problema de escala. O desafio foi construir componentes que outros desenvolvedores pudessem reaproveitar sem reescrever do zero a cada nova feature.</p>
+    <p>Isso definiu a arquitetura: padrões compartilhados, estados de carregamento explícitos em cada etapa do fluxo, e uma base que cresce com o time em vez de travar nele.</p>
+    <div class="projeto-resultado">
+      <p class="projeto-resultado-label">O que eu mediria</p>
+      <p>Em produção, acompanharia tempo médio para entregar uma feature nova com os componentes e taxa de reuso do sistema: métricas que guiaram a decisão de isolar padrões em vez de telas isoladas.</p>
+    </div>
+    <div class="projeto-stack">
+      <span>JavaScript</span>
+      <span>HTML / CSS</span>
+      <span>Vue.js</span>
+    </div>
+  </template>
+
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/projetos-filtro.js" defer></script>
   <script src="scripts/fab.js" defer></script>
@@ -326,6 +395,7 @@
   <script src="scripts/acessibilidade.js" defer></script>
   <script src="scripts/vanillaTilt.js" defer></script>
   <script src="scripts/tilt.js" defer></script>
+  <script src="scripts/case-modal.js" defer></script>
 </body>
 
 </html>

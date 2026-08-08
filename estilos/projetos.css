@@ -59,7 +59,9 @@
 
 .projeto-card-top {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
+  gap: 0.4rem;
 }
 
 .projeto-tag {
@@ -67,13 +69,28 @@
   align-items: center;
   color: var(--p5);
   background: var(--p1);
+  border: 1.5px solid transparent;
   border-radius: 100px;
   padding: 0.35rem 0.85rem;
+}
+
+.projeto-tag--estudo {
+  color: var(--b3);
+  background: transparent;
+  border-color: color-mix(in srgb, var(--b3) 28%, transparent);
+  font-weight: 500;
 }
 
 .projeto-card--dark .projeto-tag {
   background: color-mix(in srgb, var(--w1) 12%, transparent);
   color: var(--p1);
+  border-color: transparent;
+}
+
+.projeto-card--dark .projeto-tag--estudo {
+  color: color-mix(in srgb, var(--w1) 88%, transparent);
+  background: transparent;
+  border-color: color-mix(in srgb, var(--w1) 32%, transparent);
 }
 
 .projeto-card-body {
@@ -93,11 +110,22 @@
 
 .projeto-card p {
   color: var(--b3);
-  max-width: 36ch;
+  margin-bottom: 1rem;
 }
 
 .projeto-card--dark p {
   color: color-mix(in srgb, var(--w1) 75%, transparent);
+}
+
+.projeto-resultado {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.projeto-resultado-label {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: var(--b2);
 }
 
 .projeto-stack {
@@ -276,24 +304,173 @@
 }
 
 .projeto-card-link {
+  margin-top: 1.25rem;
+}
+
+.case-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(640px, calc(100% - 2rem));
+  max-height: min(85vh, 720px);
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  color: var(--b2);
+}
+
+.case-modal[open] {
+  animation: case-modal-blur-in 0.45s var(--anim-ease) both;
+}
+
+.case-modal[open]::backdrop {
+  animation: case-backdrop-blur-in 0.45s var(--anim-ease) both;
+}
+
+.case-modal::backdrop {
+  background: color-mix(in srgb, var(--b3) 55%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.case-modal-panel {
+  position: relative;
+  padding: 2rem 1.75rem 1.75rem;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--b3) 10%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--p3) 28%, var(--w1)) 0%, var(--w1) 50%),
+    var(--w1);
+  overflow: auto;
+  max-height: inherit;
+}
+
+.case-modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--b3) 8%, transparent);
+  color: var(--b2);
+  line-height: 0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.case-modal-close svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.case-modal-close:hover {
+  background: color-mix(in srgb, var(--b3) 14%, transparent);
+}
+
+.case-modal-close:focus-visible {
+  outline: 2px solid var(--p5);
+  outline-offset: 2px;
+}
+
+@keyframes case-modal-blur-in {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(0.96) translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes case-backdrop-blur-in {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-modal[open],
+  .case-modal[open]::backdrop {
+    animation: none;
+  }
+}
+
+html.a11y-reduce-motion .case-modal[open],
+html.a11y-reduce-motion .case-modal[open]::backdrop {
+  animation: none;
+}
+
+.case-modal-eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--p5);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.case-modal-body h2 {
+  margin: 0 0 1rem;
+  padding-right: 2rem;
+  color: var(--b2);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  line-height: 1.25;
+}
+
+.case-modal-body p {
+  margin: 0 0 1rem;
+  color: var(--b3);
+}
+
+.case-modal-body .projeto-resultado {
+  margin: 1.25rem 0;
+}
+
+.case-modal-body .projeto-stack {
+  margin-top: 0.5rem;
+}
+
+.case-modal-external {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
   color: var(--b2);
+  font-weight: 600;
   transition: color 0.25s ease;
 }
 
-.projeto-card--dark .projeto-card-link {
-  color: var(--p1);
-}
-
-.projeto-card-link:hover {
+.case-modal-external:hover {
   color: var(--p5);
 }
 
-.projeto-card--dark .projeto-card-link:hover {
-  color: var(--w1);
+.case-modal-external:focus-visible {
+  outline: 2px solid var(--p5);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .case-modal {
+    width: calc(100% - 1rem);
+    max-height: 90vh;
+  }
+
+  .case-modal-panel {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
 }
 
 .projeto-placeholder {

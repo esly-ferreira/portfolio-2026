@@ -21,6 +21,7 @@
 }
 
 .hero .btn-hero,
+.hero .btn-secondary,
 .hero .btn-linkedin {
   width: fit-content;
   pointer-events: auto;
@@ -83,6 +84,8 @@
   flex-shrink: 0;
   margin-bottom: 0.15em;
   opacity: 0.75;
+  bottom: 2px;
+  position: relative;
 }
 
 /* Conteúdo */
@@ -330,16 +333,19 @@ body.is-ready .hero-pill::before {
 
   .introducao .cta-actions {
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: stretch;
+    gap: 0.65rem;
   }
 
-  .hero .btn-hero {
-    flex: 0 0 auto;
-    width: fit-content;
-    min-width: 0;
+  .hero .btn-hero,
+  .hero .btn-secondary {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
   }
 
   .hero .btn-linkedin {
@@ -420,21 +426,22 @@ body.is-ready .hero-pill::before {
 
   .introducao p,
   .hero .btn-hero,
+  .hero .btn-secondary,
   .hero .btn-linkedin {
     max-width: 100%;
   }
 }
 
-/* ≤425 — botões lado a lado com tamanho natural */
+/* ≤425 — botões empilhados com largura total */
 @media (max-width: 405px) {
   .introducao .cta-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .hero .btn-hero {
-    width: fit-content;
+  .hero .btn-hero,
+  .hero .btn-secondary {
+    width: 100%;
     flex: none;
   }
 
