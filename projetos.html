@@ -43,15 +43,7 @@
 </head>
 
 <body>
-  <div
-    id="page-loader"
-    class="page-loader"
-    role="status"
-    aria-live="polite"
-    aria-busy="true"
-    aria-label="Carregando o site"
-    style="background:#101114"
-  >
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-busy="true" aria-label="Carregando o site" style="background:#101114">
     <div class="page-loader-inner">
       <img class="page-loader-star" src="svgs/estrela.svg" alt="" width="48" height="48" decoding="async">
       <p class="page-loader-brand">Esly Barbosa</p>
@@ -116,7 +108,7 @@
 
         <div class="projetos-page-grid" id="projetos-grid">
           <article id="skyhouse" class="projeto-card projeto-card--featured projeto-card--wide projeto-card--has-media" data-categoria="sites">
-            <figure class="projeto-card-media" data-tilt data-tilt-glare data-tilt-max-glare="0.8" data-tilt-max="0">
+            <figure class="projeto-card-media">
               <img src="imgs/skyhouse.webp" alt="Screenshot da landing page SkyHouse — arquitetura de alto padrão" width="1200" height="596" decoding="async">
               <a class="projeto-card-go" href="https://esly-ferreira.github.io/skyhouse/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto SkyHouse">
                 <img src="svgs/link.svg" alt="" width="48" height="48" decoding="async" aria-hidden="true">
@@ -140,7 +132,7 @@
           </article>
 
           <article id="solanus" class="projeto-card projeto-card--accent projeto-card--wide projeto-card--has-media" data-categoria="sites">
-            <figure class="projeto-card-media" data-tilt data-tilt-glare data-tilt-max-glare="0.8" data-tilt-max="0">
+            <figure class="projeto-card-media">
               <img src="imgs/solarenergy.webp" alt="Protótipo no Figma da plataforma Solanus — energia solar" width="1200" height="688" decoding="async">
               <a class="projeto-card-go" href="https://www.figma.com/design/hrrUiXdt8PVBBzJCVDn071/Sites?node-id=2032-2&t=cQRMUGOJSzXvNRSL-1" target="_blank" rel="noopener noreferrer" aria-label="Abrir protótipo Solanus no Figma">
                 <img src="svgs/link.svg" alt="" width="48" height="48" decoding="async" aria-hidden="true">
@@ -164,7 +156,7 @@
           </article>
 
           <article id="royalmotors" class="projeto-card projeto-card--dark projeto-card--has-media" data-categoria="sites">
-            <figure class="projeto-card-media" data-tilt data-tilt-glare data-tilt-max-glare="0.8" data-tilt-max="0">
+            <figure class="projeto-card-media">
               <img src="imgs/royalmotors.webp" alt="Screenshot do site RoyalMotors — aluguel de supercarros" width="1200" height="591" decoding="async">
               <a class="projeto-card-go" href="https://esly-ferreira.github.io/royalmotors/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto RoyalMotors">
                 <img src="svgs/link.svg" alt="" width="48" height="48" decoding="async" aria-hidden="true">
@@ -184,7 +176,7 @@
           </article>
 
           <article id="curriculo" class="projeto-card projeto-card--has-media" data-categoria="sites">
-            <figure class="projeto-card-media" data-tilt data-tilt-glare data-tilt-max-glare="0.8" data-tilt-max="0">
+            <figure class="projeto-card-media">
               <img src="imgs/curriculo.webp" alt="Screenshot do site currículo — portfólio pessoal" width="1200" height="594" decoding="async">
               <a class="projeto-card-go" href="https://esly-ferreira.github.io/curriculo/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto Currículo">
                 <img src="svgs/link.svg" alt="" width="48" height="48" decoding="async" aria-hidden="true">
@@ -240,7 +232,8 @@
             <a href="index.html#atuacao">Atuação</a>
             <a href="index.html#experiencia">Experiência</a>
             <a href="index.html#contato">Contato</a>
-            <a href="#">Ver material de estudos</a>
+            <a href="https://esly-ferreira.github.io/material-estudos/" target="_blank">Ver material de estudos</a>
+            <a href="https://esly-ferreira.github.io/trilha/" target="_blank">Ver Trilha</a>
           </nav>
         </div>
         <div class="footer-col footer-col--contact">
@@ -264,12 +257,7 @@
   <div class="fab" data-fab>
     <ul class="fab-panel" id="fab-menu" aria-hidden="true">
       <li>
-        <a
-          class="fab-action"
-          href="https://wa.me/5511987528603?text=Ol%C3%A1%20Esly%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto."
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="fab-action" href="https://wa.me/5511987528603?text=Ol%C3%A1%20Esly%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer">
           <span class="fab-action-copy">
             <strong>WhatsApp</strong>
             <span>Resposta rápida</span>
@@ -280,12 +268,7 @@
         </a>
       </li>
       <li>
-        <a
-          class="fab-action"
-          href="https://www.linkedin.com/in/eslybarbosa/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a class="fab-action" href="https://www.linkedin.com/in/eslybarbosa/" target="_blank" rel="noopener noreferrer">
           <span class="fab-action-copy">
             <strong>LinkedIn</strong>
             <span>Rede profissional</span>
@@ -309,13 +292,7 @@
     </ul>
     <div class="fab-anchor">
       <span class="fab-badge" aria-hidden="true">3</span>
-      <button
-        class="fab-trigger"
-        type="button"
-        aria-expanded="false"
-        aria-controls="fab-menu"
-        aria-label="Abrir opções de contato"
-      >
+      <button class="fab-trigger" type="button" aria-expanded="false" aria-controls="fab-menu" aria-label="Abrir opções de contato">
         <span class="fab-trigger-star" aria-hidden="true">
           <img src="svgs/estrela.svg" alt="" width="22" height="22" decoding="async">
         </span>
@@ -329,7 +306,7 @@
     <div class="case-modal-panel">
       <button type="button" class="case-modal-close" data-case-close aria-label="Fechar case">
         <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+          <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
         </svg>
       </button>
       <div class="case-modal-body" data-case-body></div>
@@ -393,8 +370,6 @@
   <script src="scripts/fab.js" defer></script>
   <script src="scripts/reveal.js" defer></script>
   <script src="scripts/acessibilidade.js" defer></script>
-  <script src="scripts/vanillaTilt.js" defer></script>
-  <script src="scripts/tilt.js" defer></script>
   <script src="scripts/case-modal.js" defer></script>
 </body>
 
