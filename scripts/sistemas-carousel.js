@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    renderAnimatedText(titleEl, slide.title, "char");
+    renderAnimatedText(titleEl, slide.title, "word");
     renderAnimatedText(leadEl, slide.lead, "word", CHAR_STAGGER_S * 2);
   };
 

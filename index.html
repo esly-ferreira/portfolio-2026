@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Esly Barbosa é Front-end Developer especializado em Vue.js, TypeScript, UX/UI e Micro Frontends. Desenvolve interfaces e aplicações web orientadas a produto e negócio."
+    content="Esly Barbosa é Front-end Developer especializado em Vue.js, TypeScript, UX/UI e Micro Frontends. Desenvolve interfaces e aplicações web orientadas a produto."
   >
   <meta name="author" content="Esly Barbosa">
   <meta
@@ -22,9 +22,11 @@
 
   <link rel="canonical" href="https://esly.com.br/">
   <link rel="alternate" hreflang="pt-BR" href="https://esly.com.br/">
-  <link rel="icon" href="svgs/logo.svg" type="image/svg+xml">
-  <link rel="icon" href="imgs/eslyog.png" type="image/png" sizes="800x800">
-  <link rel="apple-touch-icon" href="imgs/eslyog.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/imgs/fav32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/imgs/fav48x48.png">
+  <link rel="apple-touch-icon" href="/imgs/appleTouch180x180.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -35,10 +37,10 @@
     content="Front-end Developer especializado em Vue.js, TypeScript, UX/UI e Micro Frontends."
   >
   <meta property="og:url" content="https://esly.com.br/">
-  <meta
-    property="og:image"
-    content="https://esly.com.br/imgs/eslyog.png"
-  >
+  <meta property="og:image" content="https://esly.com.br/imgs/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta
     property="og:image:alt"
     content="Esly Barbosa — Front-end Developer & UX/UI"
@@ -55,7 +57,7 @@
   >
   <meta
     name="twitter:image"
-    content="https://esly.com.br/imgs/eslyog.png"
+    content="https://esly.com.br/imgs/og.jpg"
   >
   <meta
     name="twitter:image:alt"
@@ -384,8 +386,16 @@
                 <img class="section-label-icon" src="svgs/estrela.svg" alt="" aria-hidden="true">
                 Sistemas
               </p>
-              <h2 class="section-title reveal-item" id="sistemas-titulo" data-sistemas-title>Da arquitetura no editor ao produto rodando em produção</h2>
-              <p class="section-lead reveal-item" data-sistemas-lead>Desenvolvo sistemas completos, da arquitetura e implementação no editor ao produto final rodando no navegador. Cada entrega une lógica, interface e experiência do usuário em soluções prontas para o dia a dia.</p>
+              <div class="sistemas-copy-slot">
+                <div class="sistemas-text-sizer" aria-hidden="true">
+                  <h2 class="section-title">Da arquitetura no editor ao produto rodando em produção</h2>
+                  <p class="section-lead">Sistema completo não é 'código que funciona'. É lógica, interface e experiência de uso desenhadas juntas, desde a primeira linha até o deploy. Trabalho com Vue.js, TypeScript e Micro Frontends pensando em manutenção, o que eu entrego hoje precisa ser fácil de evoluir daqui a um ano, por mim ou por outro dev do time.</p>
+                </div>
+                <div class="sistemas-copy-live">
+                  <h2 class="section-title reveal-item" id="sistemas-titulo" data-sistemas-title>Da arquitetura no editor ao produto rodando em produção</h2>
+                  <p class="section-lead reveal-item" data-sistemas-lead>Desenvolvo sistemas completos, da arquitetura e implementação no editor ao produto final rodando no navegador. Cada entrega une lógica, interface e experiência do usuário em soluções prontas para o dia a dia.</p>
+                </div>
+              </div>
             </div>
             <ul class="sistemas-tech reveal-item" aria-label="Principais tecnologias">
               <li>
